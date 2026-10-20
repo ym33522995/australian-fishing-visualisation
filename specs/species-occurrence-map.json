@@ -1,0 +1,227 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Exact-coordinate species locations from the ALA download, observation years 2015-2025. Fixed Australian extent 110-155 E, 45-9 S; geographic controls use one shared Albers projection, not Cartesian scale bindings.",
+  "width": "container",
+  "height": 480,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "params": [
+    {
+      "name": "selectedSpecies",
+      "value": "All four species",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All four species",
+          "Barramundi",
+          "Snapper",
+          "Dusky flathead",
+          "Murray cod"
+        ],
+        "name": "Species: "
+      }
+    },
+    {
+      "name": "mapRegion",
+      "value": "Australia",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Australia",
+          "North",
+          "West",
+          "East",
+          "Murray-Darling",
+          "South"
+        ],
+        "name": "Region: "
+      }
+    },
+    {
+      "name": "mapZoom",
+      "value": 1
+    },
+    {
+      "name": "mapPanX",
+      "value": 0
+    },
+    {
+      "name": "mapPanY",
+      "value": 0
+    }
+  ],
+  "projection": {
+    "type": "albers",
+    "rotate": [
+      -132,
+      0,
+      0
+    ],
+    "center": {
+      "expr": "mapRegion === 'North' ? [0,-16] : mapRegion === 'West' ? [-12,-27] : mapRegion === 'East' ? [17,-28] : mapRegion === 'Murray-Darling' ? [12,-35] : mapRegion === 'South' ? [6,-38] : [0,-27]"
+    },
+    "parallels": [
+      -18,
+      -36
+    ],
+    "scale": {
+      "expr": "min((width - 24) / 0.797328323948004, (height - 24) / 0.652283640659195) * mapZoom * (mapRegion === 'Australia' ? 1 : 2.5)"
+    },
+    "translate": {
+      "expr": "[width / 2 + width * mapZoom * (mapRegion === 'Australia' ? 1 : 2.5) * mapPanX - (mapRegion === 'Australia' ? 0.008767494129710 * (min((width - 24) / 0.797328323948004, (height - 24) / 0.652283640659195) * mapZoom * (mapRegion === 'Australia' ? 1 : 2.5)) : 0), height / 2 + height * mapZoom * (mapRegion === 'Australia' ? 1 : 2.5) * mapPanY - (mapRegion === 'Australia' ? 0.013010239209085 * (min((width - 24) / 0.797328323948004, (height - 24) / 0.652283640659195) * mapZoom * (mapRegion === 'Australia' ? 1 : 2.5)) : 0)]"
+    }
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/geojson/australian-states.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e6ebea",
+        "stroke": "#ffffff",
+        "strokeWidth": 1,
+        "clip": true
+      }
+    },
+    {
+      "data": {
+        "url": "data/csv/species_occurrence_locations.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "latitude": "number",
+            "longitude": "number",
+            "record_count": "number",
+            "earliest_date": "string",
+            "latest_date": "string"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "selectedSpecies === 'All four species' || datum.common_name === selectedSpecies"
+        },
+        {
+          "calculate": "replace(replace(replace(replace(datum.datasets, /ACT/g, \"Australian Capital Territory\"), /NSW/g, \"New South Wales\"), /N\\.T\\./g, \"Northern Territory\"), /SA/g, \"South Australia\")",
+          "as": "datasets_full_name"
+        },
+        {
+          "calculate": "replace(replace(datum.licences, /\\(Au\\)/g, \"(Australia)\"), /\\(Int\\)/g, \"(International)\")",
+          "as": "licences_full_name"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "size": 28,
+        "opacity": 0.65,
+        "stroke": "#ffffff",
+        "strokeWidth": 0.25,
+        "clip": true
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "common_name",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Barramundi",
+              "Snapper",
+              "Dusky flathead",
+              "Murray cod"
+            ],
+            "range": [
+              "#0077bb",
+              "#cc3311",
+              "#008477",
+              "#d47e00"
+            ]
+          },
+          "legend": {
+            "title": "Species",
+            "orient": "bottom",
+            "columns": 2,
+            "labelLimit": 170
+          }
+        },
+        "tooltip": [
+          {
+            "field": "common_name",
+            "type": "nominal",
+            "title": "Species"
+          },
+          {
+            "field": "scientific_name",
+            "type": "nominal",
+            "title": "Scientific name"
+          },
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State/territory"
+          },
+          {
+            "field": "earliest_date",
+            "type": "nominal",
+            "title": "Earliest observation"
+          },
+          {
+            "field": "latest_date",
+            "type": "nominal",
+            "title": "Latest observation"
+          },
+          {
+            "field": "datasets_full_name",
+            "type": "nominal",
+            "title": "Contributing datasets"
+          },
+          {
+            "field": "record_count",
+            "type": "quantitative",
+            "title": "Records at this location",
+            "format": ",.0f"
+          },
+          {
+            "field": "uncertainty",
+            "type": "nominal",
+            "title": "Coordinate uncertainty"
+          },
+          {
+            "field": "licences_full_name",
+            "type": "nominal",
+            "title": "Source licences"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "system-ui, sans-serif",
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12
+    },
+    "title": {
+      "color": "#20343e",
+      "subtitleColor": "#506671"
+    }
+  }
+}

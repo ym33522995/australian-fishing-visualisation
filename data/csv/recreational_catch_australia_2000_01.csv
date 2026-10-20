@@ -1,0 +1,83 @@
+taxon_section,species_group,row_type,harvest_number,released_discarded_number,total_catch_number,released_pct,survey_period,printed_page,pdf_page,source_url
+FINFISH,Australian bass/perch,species_group,280612,869571,1150183,75.6,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Australian herring,species_group,6858166,1385584,8243750,16.8,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Australian salmon,species_group,1724524,875106,2599630,33.7,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Barracouta,species_group,140499,50144,190643,26.3,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Barramundi,species_group,215857,545816,761673,71.7,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Blue mackerel,species_group,569319,151495,720814,21.0,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Bream,species_group,4844924,8201492,13046416,62.9,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Butterfish,species_group,140362,108010,248372,43.5,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Catfish,species_group,345950,1024400,1370351,74.8,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Cod (various),species_group,369980,608115,978095,62.2,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Coral trout,species_group,319627,173249,492876,35.2,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Dart,species_group,358189,511497,869686,58.8,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Dhufish,species_group,102848,56884,159733,35.6,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Drummer,species_group,90726,36034,126759,28.4,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Eels,species_group,170654,134576,305229,44.1,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Emperors,species_group,653432,682717,1336149,51.1,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,European carp,species_group,2084548,269421,2353970,11.4,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Flatfish,species_group,271555,173423,444978,39.0,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Flathead,species_group,7444060,6017507,13461567,44.7,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Garfish,species_group,2438267,339589,2777856,12.2,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Golden perch,species_group,1039907,817853,1857760,44.0,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Grunters/trumpeters,species_group,584783,1311569,1896352,69.2,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,King George whiting,species_group,3621629,1277542,4899170,26.1,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Leatherjackets,species_group,767022,647255,1414276,45.8,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Luderick,species_group,663221,333072,996293,33.4,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Mackerels,species_group,471671,270773,742444,36.5,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Morwong,species_group,280081,75294,355375,21.2,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Mullet,species_group,2910892,963040,3873932,24.9,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Mulloway/jewfish,species_group,323459,276567,600026,46.1,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Murray cod,species_group,108352,374932,483284,77.6,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Other,other_group,1133427,2969030,4102457,72.4,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Pike,species_group,608117,126356,734473,17.2,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Red emperor,species_group,228600,487685,716284,68.1,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Red mullet,species_group,145601,84658,230259,36.8,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Redfin perch,species_group,1294511,968985,2263496,42.8,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Redfish,species_group,176846,195583,372429,52.5,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Rock-cod/gropers,species_group,108277,71530,179807,39.8,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Scads/mackerel,species_group,474670,250198,724868,34.5,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Scorpionfish/gurnard,species_group,146112,394677,540788,73.0,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Sea perch/snappers,species_group,655814,718458,1374272,52.3,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Sharks/rays,species_group,228320,1024408,1252728,81.8,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Pink snapper,species_group,1287826,2535955,3823780,66.3,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Sweep,species_group,206966,189228,396195,47.8,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Tailor,species_group,2308352,1410814,3719166,37.9,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Threadfin salmon,species_group,184901,117857,302758,38.9,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Trevally,species_group,995131,632387,1627518,38.9,2000-01,175,177,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Trout/salmon,species_group,824558,868297,1692856,51.3,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Tuna/bonitos,species_group,232350,120879,353229,34.2,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Whiting,species_group,8141117,4238624,12379741,34.2,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Wrasse/tuskfish/gropers,species_group,730723,1179060,1909783,61.7,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Yellowtail kingfish,species_group,114053,137079,251132,54.6,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+FINFISH,Total,subtotal,60421387,47284274,107705660,43.9,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+SMALL BAITFISH,Herring/pilchards,species_group,770804,109377,880181,12.4,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+SMALL BAITFISH,Small baitfish,other_group,10715376,592798,11308174,5.2,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+SMALL BAITFISH,Total,subtotal,11486181,702175,12188355,5.8,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+CRABS & LOBSTERS,Blue swimmer crab,species_group,3905057,2703920,6608977,40.9,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+CRABS & LOBSTERS,Crabs (other),other_group,709869,253521,963389,26.3,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+CRABS & LOBSTERS,Lobsters,species_group,686431,658781,1345212,49.0,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+CRABS & LOBSTERS,Mud crab,species_group,819886,1759843,2579729,68.2,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+CRABS & LOBSTERS,Total,subtotal,6121243,5376065,11497308,46.8,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+PRAWNS & YABBIES,Crayfish (fw),species_group,7401886,1794114,9196000,19.5,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+PRAWNS & YABBIES,Macrobrachium/cherabin,species_group,1231459,207299,1438758,14.4,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+PRAWNS & YABBIES,Murray crayfish,species_group,163646,387402,551047,70.3,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+PRAWNS & YABBIES,Prawns (fw),species_group,2321164,160782,2481947,6.5,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+PRAWNS & YABBIES,Prawns (sw),species_group,16467469,531748,16999217,3.1,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+PRAWNS & YABBIES,Yabbies/nippers (sw),species_group,20082936,2421639,22504575,10.8,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+PRAWNS & YABBIES,Total,subtotal,47668561,5502983,53171544,10.3,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+CEPHALOPODS,Octopus,species_group,39412,28477,67890,41.9,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+CEPHALOPODS,Squid/cuttlefish,species_group,1724540,67536,1792076,3.8,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+CEPHALOPODS,Total,subtotal,1763952,96013,1859965,5.2,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+OTHER MOLLUSCS,Abalone,species_group,386214,68063,454277,15.0,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+OTHER MOLLUSCS,Bivalves (other),other_group,424447,527,424975,0.1,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+OTHER MOLLUSCS,Mussels,species_group,1408650,8553,1417203,0.6,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+OTHER MOLLUSCS,Other,other_group,32659,0,32659,0.0,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+OTHER MOLLUSCS,Oysters,species_group,139548,0,139548,0.0,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+OTHER MOLLUSCS,Pippi/ Goolwa cockle,species_group,4176224,607241,4783465,12.7,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+OTHER MOLLUSCS,Razorfish,species_group,472397,2802,475199,0.6,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+OTHER MOLLUSCS,Scallops,species_group,211547,17420,228967,7.6,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+OTHER MOLLUSCS,Total,subtotal,7251687,704606,7956294,8.9,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+OTHER TAXA,Other,other_group,53671,30717,84388,36.4,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+OTHER TAXA,Worms,species_group,1140304,24375,1164679,2.1,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf
+OTHER TAXA,Total,subtotal,1193975,55092,1249067,4.4,2000-01,176,178,https://www.frdc.com.au/sites/default/files/products/1999-158-DLD.pdf

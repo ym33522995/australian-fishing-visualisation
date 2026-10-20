@@ -1,0 +1,271 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Queensland 2019-20 statewide catch by Queensland residents aged 5+. Named source species categories only: parent groups, unspecified categories, bait and unavailable/suppressed component estimates are excluded. Published Catch totals determine rank; stack segments retain independently rounded source numbers.",
+  "width": "container",
+  "height": 340,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "data": {
+    "url": "data/csv/queensland_recreational_catch_2019_20.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "retained_number": "number",
+        "released_number": "number",
+        "total_catch_number": "number",
+        "rounding_difference": "number",
+        "retained_rse_pct": "number",
+        "released_rse_pct": "number",
+        "total_rse_pct": "number"
+      }
+    },
+    "name": "catch_rows"
+  },
+  "params": [
+    {
+      "name": "catchRankingView",
+      "value": "Top 10",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Top 10",
+          "All eligible finfish categories"
+        ],
+        "name": "Show: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum.chart_eligible === 'yes'"
+    },
+    {
+      "window": [
+        {
+          "op": "row_number",
+          "as": "catch_rank"
+        }
+      ],
+      "sort": [
+        {
+          "field": "total_catch_number",
+          "order": "descending"
+        },
+        {
+          "field": "species_group",
+          "order": "ascending"
+        }
+      ]
+    },
+    {
+      "filter": "catchRankingView === 'All eligible finfish categories' || datum.catch_rank <= 10"
+    },
+    {
+      "calculate": "format(datum.total_catch_number, ',.0f')",
+      "as": "catch_label"
+    },
+    {
+      "calculate": "datum.retained_number + datum.released_number",
+      "as": "segment_total"
+    },
+    {
+      "calculate": "'Published total minus retained + released: ' + format(datum.rounding_difference, '+,.0f') + ' (independent rounding)'",
+      "as": "rounding_note"
+    }
+  ],
+  "encoding": {
+    "y": {
+      "field": "species_group",
+      "type": "nominal",
+      "sort": {
+        "field": "catch_rank",
+        "op": "min",
+        "order": "ascending"
+      },
+      "axis": {
+        "title": null,
+        "labelLimit": 180,
+        "labelPadding": 8
+      }
+    },
+    "x": {
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          0,
+          1200000
+        ],
+        "zero": true,
+        "nice": false
+      },
+      "axis": {
+        "title": "Estimated number caught",
+        "labelExpr": "datum.value === 0 ? '0' : datum.value >= 1000000 ? format(datum.value / 1000000, '.1f') + 'm' : format(datum.value / 1000, '.0f') + 'k'",
+        "grid": true,
+        "tickCount": {
+          "expr": "width < 350 ? 3 : 6"
+        },
+        "labelOverlap": true
+      }
+    },
+    "tooltip": [
+      {
+        "field": "species_group",
+        "type": "nominal",
+        "title": "Source species/category"
+      },
+      {
+        "field": "parent_group",
+        "type": "nominal",
+        "title": "Source parent group"
+      },
+      {
+        "field": "retained_number",
+        "type": "quantitative",
+        "title": "Retained",
+        "format": ",.0f"
+      },
+      {
+        "field": "released_number",
+        "type": "quantitative",
+        "title": "Released",
+        "format": ",.0f"
+      },
+      {
+        "field": "total_catch_number",
+        "type": "quantitative",
+        "title": "Published total catch",
+        "format": ",.0f"
+      },
+      {
+        "field": "survey_period",
+        "type": "nominal",
+        "title": "Survey period"
+      },
+      {
+        "field": "quality_flag",
+        "type": "nominal",
+        "title": "Confidence"
+      },
+      {
+        "field": "retained_rse_pct",
+        "type": "quantitative",
+        "title": "Retained RSE (%)",
+        "format": ".2f"
+      },
+      {
+        "field": "released_rse_pct",
+        "type": "quantitative",
+        "title": "Released RSE (%)",
+        "format": ".2f"
+      },
+      {
+        "field": "total_rse_pct",
+        "type": "quantitative",
+        "title": "Total RSE (%)",
+        "format": ".2f"
+      },
+      {
+        "field": "rounding_note",
+        "type": "nominal",
+        "title": "Rounding"
+      }
+    ]
+  },
+  "layer": [
+    {
+      "transform": [
+        {
+          "fold": [
+            "retained_number",
+            "released_number"
+          ],
+          "as": [
+            "catch_component",
+            "component_number"
+          ]
+        },
+        {
+          "calculate": "datum.catch_component === 'retained_number' ? 'Retained' : 'Released'",
+          "as": "catch_fate"
+        },
+        {
+          "calculate": "datum.catch_fate === 'Retained' ? 0 : 1",
+          "as": "fate_order"
+        }
+      ],
+      "mark": {
+        "type": "bar",
+        "size": 19
+      },
+      "encoding": {
+        "x": {
+          "field": "component_number",
+          "stack": "zero"
+        },
+        "color": {
+          "field": "catch_fate",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Retained",
+              "Released"
+            ],
+            "range": [
+              "#117733",
+              "#b58900"
+            ]
+          },
+          "legend": {
+            "title": null,
+            "orient": "top",
+            "direction": "horizontal",
+            "symbolType": "square"
+          }
+        },
+        "order": {
+          "field": "fate_order",
+          "sort": "ascending"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 5,
+        "fontSize": 11,
+        "color": "#20343e"
+      },
+      "encoding": {
+        "text": {
+          "condition": {
+            "test": "width >= 350",
+            "field": "catch_label",
+            "type": "nominal"
+          },
+          "value": ""
+        },
+        "x": {
+          "field": "segment_total",
+          "type": "quantitative"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "system-ui, sans-serif",
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titlePadding": 12,
+      "gridColor": "#e5ecef"
+    }
+  }
+}

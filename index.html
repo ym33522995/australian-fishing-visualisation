@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Recreational Fishing in Australia</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Compatible pinned versions used in the FIT3179 multiple-charts example.
+       Defer preserves this dependency order and runs scripts after HTML parsing. -->
+  <script defer src="https://cdn.jsdelivr.net/npm/vega@5.20.2/build/vega.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0/build/vega-lite.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0/build/vega-embed.min.js"></script>
+  <script defer src="js/visualisations.js"></script>
+</head>
+<body>
+  <header class="page-header">
+    <div class="header-content">
+      <h1>Recreational Fishing in Australia</h1>
+      <p>Explore Australian fishing through people, catches, places and communities.</p>
+    </div>
+  </header>
+
+  <main>
+    <section id="participation-and-wellbeing" aria-labelledby="participation-and-wellbeing-heading">
+      <h2 id="participation-and-wellbeing-heading">Participation and Wellbeing</h2>
+      <div class="chart-grid">
+        <article class="chart-card participation-map-card">
+          <div class="chart-intro">
+            <h3 id="participation-1-heading">Where is recreational fishing most popular? <sup class="reference-marker">[1]</sup></h3>
+            <p id="participation-map-description">In 2018, 21.37% of Australian adults fished. Colour shows adult participation rates.</p>
+          </div>
+          <div class="chart-body">
+            <div id="participation-chart-1" class="chart-container participation-map" aria-labelledby="participation-1-heading" aria-describedby="participation-map-description participation-map-note"><p>Loading participation map…</p></div>
+          </div>
+          <div class="chart-footer">
+            <p id="participation-map-note" class="chart-note">NSW and ACT share one estimate: 19.55%. Grey indicates unavailable data.</p>
+
+          </div>
+        </article>
+        <article class="chart-card participation-comparison-card">
+          <div class="chart-intro">
+            <h3 id="participation-2-heading">Does fishing participation differ between urban and regional communities? <sup class="reference-marker">[2]</sup></h3>
+            <p id="participation-comparison-description">Adults aged 18+, fishing during 2020. Compare urban and regional participation within age groups.</p>
+          </div>
+          <div class="chart-body">
+            <div id="participation-chart-2" class="chart-container participation-comparison" aria-labelledby="participation-2-heading" aria-describedby="participation-comparison-description participation-comparison-gap"><p>Loading participation comparison…</p></div>
+          </div>
+          <div class="chart-footer">
+            <p id="participation-comparison-gap" class="chart-note">Rounded percentages do not establish statistical significance.</p>
+
+          </div>
+        </article>
+        <article class="chart-card chart-card-wide">
+          <div class="chart-intro">
+            <h3 id="fishing-frequency-wellbeing-heading">Fishing frequency and wellbeing <sup class="reference-marker">[3]</sup></h3>
+            <p id="fishing-frequency-wellbeing-description">Compare low wellbeing across fishing frequency groups.</p>
+          </div>
+          <div class="chart-body">
+            <div id="fishing-frequency-wellbeing" class="chart-container wellbeing-chart" aria-labelledby="fishing-frequency-wellbeing-heading" aria-describedby="fishing-frequency-wellbeing-description fishing-frequency-wellbeing-definition"><p>Loading wellbeing chart…</p></div>
+          </div>
+          <div class="chart-footer">
+            <p id="fishing-frequency-wellbeing-definition" class="chart-note">Low wellbeing: Personal Wellbeing Index below 60. Association does not establish causation. These surveys do not measure change over time.</p>
+
+          </div>
+        </article>
+        <article class="chart-card chart-card-wide">
+          <div class="chart-intro">
+            <h3 id="direct-employment-map-heading">Where did recreational fishing support jobs? <sup class="reference-marker">[10]</sup></h3>
+            <p id="direct-employment-map-description">Estimated direct employment, Australia, 2018-19. Circle area shows modelled full-time-equivalent employment. Scroll to zoom; drag to pan.</p>
+            <p id="direct-employment-map-geography" class="chart-note">Each circle summarises one state or territory.</p>
+          </div>
+          <div class="chart-body">
+            <div id="direct-employment-map" class="chart-container employment-map" aria-labelledby="direct-employment-map-heading" aria-describedby="direct-employment-map-description direct-employment-map-geography direct-employment-map-note"><p>Loading direct employment map…</p></div>
+          </div>
+          <div class="chart-footer">
+            <button id="reset-employment-map" type="button" disabled>Reset employment overview</button>
+            <p id="direct-employment-map-note" class="chart-note">Full-time equivalents measure workload, rather than individual workers. Historical estimates do not measure current employment.</p>
+
+          </div>
+        </article>
+      </div>
+      <aside class="section-summary" aria-labelledby="participation-summary-heading">
+        <div class="summary-heading">
+          <span class="summary-kicker">The section at a glance</span>
+          <h3 id="participation-summary-heading">People, wellbeing and community</h3>
+        </div>
+        <ol class="summary-flow">
+          <li class="summary-insight">
+            <span class="summary-step" aria-hidden="true">01</span>
+            <strong class="summary-highlight">1 in 5</strong>
+            <h4>Adults fished in 2018</h4>
+            <p>Fishing connects many Australians with recreation and community. In 2018, around one-fifth of Australian adults fished. Participation varied across states and urban-regional communities.</p>
+          </li>
+          <li class="summary-insight">
+            <span class="summary-step" aria-hidden="true">02</span>
+            <strong class="summary-highlight">Wellbeing</strong>
+            <h4>An association, not proof</h4>
+            <p>Frequent fishers reported less low wellbeing in 2019-20. This association does not prove fishing improves wellbeing.</p>
+          </li>
+          <li class="summary-insight">
+            <span class="summary-step" aria-hidden="true">03</span>
+            <strong class="summary-highlight">Jobs</strong>
+            <h4>Spending supports communities</h4>
+            <p>Beyond individuals, recreational fishing spending supported jobs across Australia.</p>
+          </li>
+        </ol>
+        <p class="summary-next"><span aria-hidden="true">&#8594;</span> The next section explores catches and changes over time.</p>
+      </aside>
+    </section>
+
+    <section id="species-and-changes" aria-labelledby="species-and-changes-heading">
+      <h2 id="species-and-changes-heading">Species and Changes</h2>
+      <div class="chart-grid">
+        <article class="chart-card">
+          <div class="chart-intro">
+            <h3 id="common-species-bar-heading">Most commonly caught species/groups in Queensland, 2019-20 <sup class="reference-marker">[4]</sup></h3>
+            <p id="common-species-bar-description">Queensland residents aged 5+, fishing in Queensland. Estimated 2019-20 catch includes retained and released fish.</p>
+          </div>
+          <div class="chart-body">
+            <div id="common-species-bar" class="chart-container catch-ranking" aria-labelledby="common-species-bar-heading" aria-describedby="common-species-bar-description common-species-bar-note"><p>Loading catch ranking…</p></div>
+          </div>
+          <div class="chart-footer">
+            <p id="common-species-bar-note" class="chart-note">Rankings exclude bait and unspecified species. Estimates are rounded to the nearest 1,000. Historical catch totals cannot predict fishing success.</p>
+
+          </div>
+        </article>
+        <article class="chart-card">
+          <div class="chart-intro">
+            <h3 id="species-catch-trend-heading">How have recreational catches changed in Queensland? <sup class="reference-marker">[5]</sup></h3>
+            <p id="species-catch-trend-description">Queensland residents aged 5+, fishing in Queensland. Compare estimated catches across survey years.</p>
+          </div>
+          <div class="chart-body">
+            <div id="species-catch-trend" class="chart-container catch-trends" aria-labelledby="species-catch-trend-heading" aria-describedby="species-catch-trend-description species-catch-trend-note"><p>Loading Queensland catch trends…</p></div>
+          </div>
+          <div class="chart-footer">
+            <p id="species-catch-trend-note" class="chart-note">Dashed lines mark changed methods in 2019-20. Whiskers show sampling uncertainty around the 2013-14 estimates. Longer whiskers indicate less precise estimates. They represent one standard error above and below. Flathead has no comparable 2019-20 estimate. Survey changes complicate comparisons across years. Catch totals alone cannot establish changes in fish populations.</p>
+
+          </div>
+        </article>
+      </div>
+      <aside class="section-summary" aria-labelledby="catch-summary-heading">
+        <div class="summary-heading">
+          <span class="summary-kicker">The section at a glance</span>
+          <h3 id="catch-summary-heading">From catches to change</h3>
+        </div>
+        <ol class="summary-flow">
+          <li class="summary-insight">
+            <span class="summary-step" aria-hidden="true">01</span>
+            <strong class="summary-highlight">Retained</strong>
+            <h4>What fishers kept</h4>
+            <p>Fishing's wider benefits introduce another question: what gets caught? Queensland's 2019-20 estimates include retained and released fish.</p>
+          </li>
+          <li class="summary-insight">
+            <span class="summary-step" aria-hidden="true">02</span>
+            <strong class="summary-highlight">Released</strong>
+            <h4>Another part of total catch</h4>
+            <p>Comparing these totals reveals differences between species.</p>
+          </li>
+          <li class="summary-insight">
+            <span class="summary-step" aria-hidden="true">03</span>
+            <strong class="summary-highlight">Over time</strong>
+            <h4>Earlier surveys add perspective</h4>
+            <p>Earlier surveys show how estimated catches changed.</p>
+          </li>
+        </ol>
+        <p class="summary-next"><span aria-hidden="true">&#8594;</span> Next, explore recorded species locations and fishing environments.</p>
+      </aside>
+    </section>
+
+    <section id="places-and-trip-planning" aria-labelledby="places-and-trip-planning-heading">
+      <h2 id="places-and-trip-planning-heading">Places and Trip Planning</h2>
+      <div class="chart-grid">
+        <article class="chart-card chart-card-wide">
+          <div class="chart-intro">
+            <h3 id="species-occurrence-map-heading">Where have these fish been recorded? <sup class="reference-marker">[6]</sup></h3>
+            <p id="species-occurrence-map-description">Records from 2015-2025 cover four selected species. Each dot represents one species at one location. Scroll to zoom; drag to pan.</p>
+          </div>
+          <div class="chart-body">
+            <div id="species-occurrence-map" class="chart-container occurrence-map" aria-labelledby="species-occurrence-map-heading" aria-describedby="species-occurrence-map-description occurrence-map-note"><p>Loading species locations…</p></div>
+          </div>
+          <div class="chart-footer">
+            <button id="reset-species-map" type="button" disabled>Reset to all species and Australia</button>
+            <p id="occurrence-map-note" class="chart-note">Repeated records share dots; dots do not measure abundance. Blank areas may reflect missing observations.</p>
+
+          </div>
+        </article>
+        <article class="chart-card">
+          <div class="chart-intro">
+            <h3 id="nsw-effort-by-waterbody-heading">Which environments do recreational fishers use? <sup class="reference-marker">[7]</sup></h3>
+            <p id="nsw-effort-by-waterbody-description">NSW licence-holder households, November 2023-October 2024. Shares represent estimated fisher-days across water environments.</p>
+          </div>
+          <div class="chart-body">
+            <div id="nsw-effort-by-waterbody" class="chart-container effort-pie" aria-labelledby="nsw-effort-by-waterbody-heading" aria-describedby="nsw-effort-by-waterbody-description nsw-effort-by-waterbody-note"><p>Loading NSW effort shares…</p></div>
+          </div>
+          <div class="chart-footer">
+            <p id="nsw-effort-by-waterbody-note" class="chart-note">One fisher-day means one person fishing one day. Greater effort does not guarantee better catches.</p>
+
+          </div>
+        </article>
+        <article class="chart-card">
+          <div class="chart-intro">
+            <h3 id="fishing-facilities-map-heading">Facilities that support a fishing trip <sup class="reference-marker">[8]</sup></h3>
+            <p id="fishing-facilities-map-description">Moreton Bay council assets, Queensland, February 2022. Circle area shows asset counts per 5km cell. Scroll to zoom; drag to pan.</p>
+          </div>
+          <div class="chart-body">
+            <div id="fishing-facilities-map" class="chart-container facilities-map" aria-labelledby="fishing-facilities-map-heading" aria-describedby="fishing-facilities-map-description fishing-facilities-map-note"><p>Loading facility counts…</p></div>
+          </div>
+          <div class="chart-footer">
+            <p id="fishing-facilities-caption" class="chart-note" aria-live="polite"></p>
+            <button id="reset-facilities-map" type="button" disabled>Reset facilities overview</button>
+            <p id="fishing-facilities-map-note" class="chart-note">Circles summarise cells, rather than exact facility locations. Counts cannot guarantee access or facility suitability.</p>
+
+          </div>
+        </article>
+        <article class="chart-card chart-card-wide">
+          <div class="chart-intro">
+            <h3 id="water-depth-map-heading">Explore the underwater landscape around Australia <sup class="reference-marker">[9]</sup></h3>
+            <p id="water-depth-map-description">Contours show seabed depths around Australia.</p>
+            <div class="depth-controls" role="group" aria-label="Water-depth map controls">
+              <button id="reset-depth-map" type="button" disabled>Reset Australia</button>
+            </div>
+            <p id="depth-map-interaction" class="chart-note">Scroll to zoom; drag to pan. Reset Australia restores the original view. Scroll outside the map for page navigation. Keyboard: use +/- for zoom; arrows for panning.</p>
+          </div>
+          <div class="chart-body">
+            <div id="water-depth-map" class="chart-container depth-map" tabindex="0" aria-label="Interactive Australian bathymetric contours" aria-labelledby="water-depth-map-heading" aria-describedby="water-depth-map-description depth-map-interaction water-depth-map-note"><p>Loading depth contours…</p></div>
+          </div>
+          <div class="chart-footer">
+            <p id="depth-map-status" class="chart-note" aria-live="polite"></p>
+            <p id="water-depth-map-note" class="chart-note">Geographic overview only; unsuitable for navigation. Zooming cannot improve the underlying grid resolution.</p>
+
+          </div>
+        </article>
+      </div>
+      <aside class="section-summary" aria-labelledby="places-summary-heading">
+        <div class="summary-heading">
+          <span class="summary-kicker">The section at a glance</span>
+          <h3 id="places-summary-heading">From fish locations to trip planning</h3>
+        </div>
+        <ol class="summary-flow">
+          <li class="summary-insight">
+            <span class="summary-step" aria-hidden="true">01</span>
+            <strong class="summary-highlight">4 species</strong>
+            <h4>Recorded across Australian waters</h4>
+            <p>Knowing what gets caught sparks curiosity about fishing locations. Species records provide a starting point for exploring Australia. They reveal recorded locations across coastal and inland waters.</p>
+          </li>
+          <li class="summary-insight">
+            <span class="summary-step" aria-hidden="true">02</span>
+            <strong class="summary-highlight">49%</strong>
+            <h4>NSW fisher-days in estuaries</h4>
+            <p>Understanding fishing places also means considering their aquatic environments. In NSW, estuaries represented 49% of estimated fisher-days. This highlights their importance within that state's fishing activity.</p>
+          </li>
+          <li class="summary-insight">
+            <span class="summary-step" aria-hidden="true">03</span>
+            <strong class="summary-highlight">Facilities</strong>
+            <h4>A Moreton Bay example</h4>
+            <p>Beyond environments, practical facilities help shape a fishing trip. Moreton Bay provides a regional example of supporting infrastructure. Its ramps, jetties, and cleaning stations add practical context.</p>
+          </li>
+          <li class="summary-insight">
+            <span class="summary-step" aria-hidden="true">04</span>
+            <strong class="summary-highlight">Depth</strong>
+            <h4>The landscape beneath the water</h4>
+            <p>Looking offshore, depth contours reveal shelves and deeper waters. These landscapes add another dimension to understanding fishing places. Each map contributes a different perspective on trip planning.</p>
+          </li>
+        </ol>
+        <p class="summary-next"><span aria-hidden="true">&#8594;</span> Together, they connect curiosity about fish with geographic exploration.</p>
+      </aside>
+    </section>
+
+
+    <section id="references" aria-labelledby="references-heading">
+      <h2 id="references-heading">References</h2>
+      <ul class="reference-list">
+        <li>
+          <p class="reference-label">Chart [6]: Species records</p>
+          <p class="chart-source">Atlas of Living Australia. (n.d.). <i>Species occurrence records: Barramundi, snapper, dusky flathead, and Murray cod, 2015-2025</i> [Data set]. Retrieved October 10, 2026, from <a href="https://www.ala.org.au/">https://www.ala.org.au/</a></p>
+        </li>
+        <li>
+          <p class="reference-label">Charts [1], [6], [9], [10]: State boundaries</p>
+          <p class="chart-source">Australian Bureau of Statistics. (2021). <i>Australian Statistical Geography Standard (ASGS): States and territories, generalised boundaries</i> [Data set]. <a href="https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/STE/FeatureServer/1">https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/STE/FeatureServer/1</a></p>
+        </li>
+        <li>
+          <p class="reference-label">Chart [8]: Local government boundaries</p>
+          <p class="chart-source">Australian Bureau of Statistics. (2025). <i>Australian Statistical Geography Standard (ASGS): Local government areas</i> [Data set]. <a href="https://geo.abs.gov.au/arcgis/rest/services/ASGS2025/LGA/FeatureServer/0">https://geo.abs.gov.au/arcgis/rest/services/ASGS2025/LGA/FeatureServer/0</a></p>
+        </li>
+        <li>
+          <p class="reference-label">Chart [8]: Fishing facilities</p>
+          <p class="chart-source">City of Moreton Bay. (2022, February 1). <i>Boating and fishing data</i> [Data set]. <a href="https://datahub.moretonbay.qld.gov.au/datasets/moretonbay::boating-and-fishing-data">https://datahub.moretonbay.qld.gov.au/datasets/moretonbay::boating-and-fishing-data</a></p>
+        </li>
+        <li>
+          <p class="reference-label">Charts [4], [5]: Queensland catch estimates</p>
+          <p class="chart-source">Department of Primary Industries. (n.d.). <i>Statewide recreational fishing survey</i> [Data dashboard]. Queensland Government. Retrieved October 10, 2026, from <a href="https://www.dpi.qld.gov.au/business-priorities/fisheries/monitor/rec/statewide-survey">https://www.dpi.qld.gov.au/business-priorities/fisheries/monitor/rec/statewide-survey</a></p>
+        </li>
+        <li>
+          <p class="reference-label">Chart [9]: Seabed depth</p>
+          <p class="chart-source">GEBCO Bathymetric Compilation Group 2026. (2026). <i>The GEBCO_2026 grid</i> [Data set]. <a href="https://doi.org/10.5285/4f68d5c7-45eb-f999-e063-7086abc036fa">https://doi.org/10.5285/4f68d5c7-45eb-f999-e063-7086abc036fa</a></p>
+        </li>
+        <li>
+          <p class="reference-label">Charts [1], [2], [3], [10]: Participation, wellbeing, employment</p>
+          <p class="chart-source">Moore, A., Schirmer, J., Magnusson, A., Keller, K., Hinten, G., Galeano, D., Woodhams, J., Wright, D., Maloney, L., &amp; Dix, A. (2023). <i>National social and economic survey of recreational fishers 2018-2021</i> (FRDC Project No. 2018-161). Fisheries Research and Development Corporation. <a href="https://www.frdc.com.au/sites/default/files/products/2018-161-NRFS_main%20report_FINAL_19Feb2023.pdf">https://www.frdc.com.au/sites/default/files/products/2018-161-NRFS_main%20report_FINAL_19Feb2023.pdf</a></p>
+        </li>
+        <li>
+          <p class="reference-label">Chart [7]: NSW fishing effort</p>
+          <p class="chart-source">NSW Department of Primary Industries and Regional Development. (n.d.). <i>Recreational fishing research surveys</i>. Retrieved October 13, 2026, from <a href="https://www.dpird.nsw.gov.au/fishing/recreational/rfmp/research-surveys">https://www.dpird.nsw.gov.au/fishing/recreational/rfmp/research-surveys</a></p>
+        </li>
+        <li>
+          <p class="reference-label">Charts [4], [5]: Queensland survey report</p>
+          <p class="chart-source">Teixeira, D., Janes, R., &amp; Webley, J. (2020). <i>2019-20 statewide recreational fishing survey: Key results</i>. Department of Agriculture and Fisheries. <a href="https://era.dpi.qld.gov.au/7879/1/SRFS2019_Key_highlights_report.pdf">https://era.dpi.qld.gov.au/7879/1/SRFS2019_Key_highlights_report.pdf</a></p>
+        </li>
+        <li>
+          <p class="reference-label">Chart [5]: Historical catch estimates</p>
+          <p class="chart-source">Webley, J., McInnes, K., Teixeira, D., Lawson, A., &amp; Quinn, R. (2015). <i>Statewide recreational fishing survey 2013-14</i>. Department of Agriculture and Fisheries. <a href="https://era.dpi.qld.gov.au/id/eprint/6513/1/2013-14SRFS%20Report.pdf">https://era.dpi.qld.gov.au/id/eprint/6513/1/2013-14SRFS%20Report.pdf</a></p>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+  <footer class="page-footer">
+    <p>Created by Miura <span aria-hidden="true">&middot;</span> <time datetime="2026-10-15">15 October 2026</time></p>
+  </footer>
+</body>
+</html>

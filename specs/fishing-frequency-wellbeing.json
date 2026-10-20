@@ -1,0 +1,156 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Published within-group low-wellbeing proportions from FRDC Table 9.2; separate survey panels, not longitudinal change.",
+  "data": {
+    "url": "data/csv/fishing-frequency-wellbeing.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "frequency_order": "number",
+        "low_wellbeing_pct": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "calculate": "format(datum.low_wellbeing_pct, '.1f') + '%'",
+      "as": "percentage_label"
+    },
+    {
+      "calculate": "'Personal Wellbeing Index score below 60; percentage of fishers within this frequency group.'",
+      "as": "definition"
+    }
+  ],
+  "facet": {
+    "field": "survey",
+    "type": "nominal",
+    "sort": [
+      "2018 Regional Wellbeing Survey",
+      "2019-20 NRFS Stage 2"
+    ],
+    "header": {
+      "title": null,
+      "labelFontSize": 13,
+      "labelColor": "#20343e",
+      "labelExpr": "datum.label === '2018 Regional Wellbeing Survey' ? ['2018 Regional Wellbeing Survey'] : ['2019-20 NRFS Stage 2']"
+    }
+  },
+  "columns": 2,
+  "spacing": 30,
+  "spec": {
+    "width": 400,
+    "height": 240,
+    "encoding": {
+      "x": {
+        "field": "frequency_group",
+        "type": "nominal",
+        "sort": [
+          "<5 days",
+          "5-19 days",
+          "20+ days"
+        ],
+        "axis": {
+          "title": "Days fished in the previous 12 months",
+          "labelAngle": 0,
+          "titleFontSize": 11
+        }
+      },
+      "y": {
+        "field": "low_wellbeing_pct",
+        "type": "quantitative",
+        "scale": {
+          "domain": [
+            0,
+            35
+          ],
+          "zero": true
+        },
+        "axis": {
+          "title": "Fishers with low wellbeing (%)",
+          "values": [
+            0,
+            5,
+            10,
+            15,
+            20,
+            25,
+            30,
+            35
+          ]
+        }
+      },
+      "tooltip": [
+        {
+          "field": "survey_full_name",
+          "type": "nominal",
+          "title": "Survey"
+        },
+        {
+          "field": "frequency_group",
+          "type": "nominal",
+          "title": "Frequency group"
+        },
+        {
+          "field": "percentage_label",
+          "type": "nominal",
+          "title": "Fishers with low wellbeing"
+        },
+        {
+          "field": "definition",
+          "type": "nominal",
+          "title": "Low-wellbeing definition"
+        }
+      ]
+    },
+    "layer": [
+      {
+        "mark": {
+          "type": "bar",
+          "color": "#5c6f38",
+          "size": 45
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "dy": -10,
+          "fontSize": 12,
+          "color": "#20343e"
+        },
+        "encoding": {
+          "text": {
+            "field": "percentage_label",
+            "type": "nominal"
+          }
+        }
+      }
+    ],
+    "transform": [
+      {
+        "calculate": "replace(datum.survey, /NRFS/g, \"National Recreational Fishing Survey\")",
+        "as": "survey_full_name"
+      }
+    ]
+  },
+  "resolve": {
+    "axis": {
+      "y": "independent"
+    },
+    "scale": {
+      "x": "shared",
+      "y": "shared"
+    }
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 11,
+      "titleColor": "#20343e",
+      "labelColor": "#20343e",
+      "gridColor": "#e5ecef",
+      "titlePadding": 12
+    }
+  }
+}

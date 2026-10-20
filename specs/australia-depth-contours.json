@@ -1,0 +1,333 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Marine contours derived from an Australian-region one-arc-minute sample of GEBCO_2026. All layers share one Albers projection; source resolution does not increase with zoom.",
+  "width": "container",
+  "height": 500,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "params": [
+    {
+      "name": "depthZoom",
+      "value": 1
+    },
+    {
+      "name": "depthPanX",
+      "value": 0
+    },
+    {
+      "name": "depthPanY",
+      "value": 0
+    },
+    {
+      "name": "depthDetail",
+      "value": "Major contours",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Major contours",
+          "All available contours"
+        ],
+        "name": "Contour detail: "
+      }
+    }
+  ],
+  "projection": {
+    "type": "albers",
+    "rotate": [
+      -132,
+      0,
+      0
+    ],
+    "center": [
+      0,
+      -27
+    ],
+    "parallels": [
+      -18,
+      -36
+    ],
+    "scale": {
+      "expr": "min((width - 32) / 0.94, (height - 32) / 0.80) * depthZoom"
+    },
+    "translate": {
+      "expr": "[width/2 + width*depthPanX, height/2 + height*depthPanY]"
+    }
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/geojson/australia-depth-overview.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "filter": "depthDetail === 'Major contours' && depthZoom < 2"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "filled": false,
+        "strokeWidth": 1.1,
+        "opacity": 0.85,
+        "clip": true
+      },
+      "encoding": {
+        "stroke": {
+          "field": "properties.depth_m",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              20,
+              4000
+            ],
+            "range": [
+              "#c9b5d9",
+              "#542788"
+            ]
+          },
+          "legend": {
+            "title": "Depth below sea level (m)",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "values": [
+              20,
+              200,
+              1000,
+              2000,
+              4000
+            ],
+            "format": ",.0f",
+            "gradientLength": {
+              "expr": "min(260, width)"
+            }
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.depth_m",
+            "type": "quantitative",
+            "title": "Depth",
+            "format": ",.0f"
+          },
+          {
+            "field": "properties.units",
+            "title": "Units"
+          },
+          {
+            "field": "properties.vertical_reference",
+            "title": "Vertical reference"
+          },
+          {
+            "field": "properties.dataset",
+            "title": "Source grid"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/geojson/australia-depth-contours.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "filter": "depthDetail === 'All available contours' || depthZoom >= 2"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "filled": false,
+        "strokeWidth": 1.1,
+        "opacity": 0.85,
+        "clip": true
+      },
+      "encoding": {
+        "stroke": {
+          "field": "properties.depth_m",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              20,
+              4000
+            ],
+            "range": [
+              "#c9b5d9",
+              "#542788"
+            ]
+          },
+          "legend": {
+            "title": "Depth below sea level (m)",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "values": [
+              20,
+              200,
+              1000,
+              2000,
+              4000
+            ],
+            "format": ",.0f",
+            "gradientLength": {
+              "expr": "min(260, width)"
+            }
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.depth_m",
+            "type": "quantitative",
+            "title": "Depth",
+            "format": ",.0f"
+          },
+          {
+            "field": "properties.units",
+            "type": "nominal",
+            "title": "Units"
+          },
+          {
+            "field": "properties.vertical_reference",
+            "type": "nominal",
+            "title": "Vertical reference"
+          },
+          {
+            "field": "properties.dataset",
+            "type": "nominal",
+            "title": "Source grid"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/geojson/australian-states.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e5ebe7",
+        "stroke": "#9fb2af",
+        "strokeWidth": 0.65,
+        "clip": true
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "properties.state_name_2021",
+            "type": "nominal",
+            "title": "State / territory"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/geojson/australia-depth-labels.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.properties.major || depthDetail === 'All available contours' || depthZoom >= 2"
+        },
+        {
+          "calculate": "datum.geometry.coordinates[0]",
+          "as": "longitude"
+        },
+        {
+          "calculate": "datum.geometry.coordinates[1]",
+          "as": "latitude"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#20343e",
+        "dy": -6,
+        "clip": true
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "properties.label"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/geojson/australia-depth-annotations.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "calculate": "datum.geometry.coordinates[0]",
+          "as": "longitude"
+        },
+        {
+          "calculate": "datum.geometry.coordinates[1]",
+          "as": "latitude"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 10,
+        "color": "#506671",
+        "clip": true
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "properties.label"
+        },
+        "tooltip": [
+          {
+            "field": "properties.source",
+            "title": "Geographic annotation source"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "font": "system-ui, sans-serif",
+    "view": {
+      "stroke": "#d5e3e8",
+      "fill": "#f4fafc"
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "titleFontSize": 11
+    }
+  }
+}

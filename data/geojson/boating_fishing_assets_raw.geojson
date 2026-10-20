@@ -1,0 +1,1416 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 1,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.01671815733,
+          -27.2870181616405
+        ]
+      },
+      "properties": {
+        "OBJECTID": 1,
+        "Asset_Number": "A00276948",
+        "Description": "Acacia Park",
+        "Classification": "Open Space\\Fixtures\\Canoe Stand"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 2,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          152.963973188546,
+          -27.2766960707751
+        ]
+      },
+      "properties": {
+        "OBJECTID": 2,
+        "Asset_Number": "A00435491",
+        "Description": "NMA - Canoe Stand - Mungara Reserve",
+        "Classification": "Open Space\\Fixtures\\Canoe Stand"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 3,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          152.930336723095,
+          -27.0931901215796
+        ]
+      },
+      "properties": {
+        "OBJECTID": 3,
+        "Asset_Number": "A00607055",
+        "Description": "Canoe Stand / Slide rails - Moloney Plac",
+        "Classification": "Open Space\\Fixtures\\Canoe Stand"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 4,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.016465335228,
+          -27.2868126613149
+        ]
+      },
+      "properties": {
+        "OBJECTID": 4,
+        "Asset_Number": "A00225793",
+        "Description": "Acacia Park",
+        "Classification": "Open Space\\Fixtures\\Canoe Stand"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 5,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.016455042643,
+          -27.2867043770746
+        ]
+      },
+      "properties": {
+        "OBJECTID": 5,
+        "Asset_Number": "A00618200",
+        "Description": "Acacia Park",
+        "Classification": "Open Space\\Fixtures\\Canoe Stand"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 6,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.016458093115,
+          -27.2867237251082
+        ]
+      },
+      "properties": {
+        "OBJECTID": 6,
+        "Asset_Number": "A00618201",
+        "Description": "Acacia Park",
+        "Classification": "Open Space\\Fixtures\\Canoe Stand"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 7,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.10261459002,
+          -27.2646262613855
+        ]
+      },
+      "properties": {
+        "OBJECTID": 7,
+        "Asset_Number": "A00249036",
+        "Description": "Fish Cleaning Table",
+        "Classification": "Open Space\\Fixtures\\Fish Cleaning Station"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 8,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.036081382928,
+          -27.1454854220625
+        ]
+      },
+      "properties": {
+        "OBJECTID": 8,
+        "Asset_Number": "A00579249",
+        "Description": "Fish Cleaning Table",
+        "Classification": "Open Space\\Fixtures\\Fish Cleaning Station"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 9,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.116541207115,
+          -27.2262234683723
+        ]
+      },
+      "properties": {
+        "OBJECTID": 9,
+        "Asset_Number": "A00098992",
+        "Description": "Fish Cleaning Table",
+        "Classification": "Open Space\\Fixtures\\Fish Cleaning Station"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 10,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.093437593644,
+          -27.2041199916669
+        ]
+      },
+      "properties": {
+        "OBJECTID": 10,
+        "Asset_Number": "A00531757",
+        "Description": "Endeavour Park",
+        "Classification": "Open Space\\Fixtures\\Fish Cleaning Station"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 11,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.093369745134,
+          -27.2041319804414
+        ]
+      },
+      "properties": {
+        "OBJECTID": 11,
+        "Asset_Number": "A00531756",
+        "Description": "Endeavour Park",
+        "Classification": "Open Space\\Fixtures\\Fish Cleaning Station"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 12,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.113287390289,
+          -27.240896557286
+        ]
+      },
+      "properties": {
+        "OBJECTID": 12,
+        "Asset_Number": "A00232960",
+        "Description": "Fish Cleaning Table",
+        "Classification": "Open Space\\Fixtures\\Fish Cleaning Station"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 13,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.102630835786,
+          -27.26460687215
+        ]
+      },
+      "properties": {
+        "OBJECTID": 13,
+        "Asset_Number": "A00198975",
+        "Description": "Fish Cleaning Table",
+        "Classification": "Open Space\\Fixtures\\Fish Cleaning Station"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 14,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.07120788057,
+          -26.9999921180586
+        ]
+      },
+      "properties": {
+        "OBJECTID": 14,
+        "Asset_Number": "A00300384",
+        "Description": "Fish Cleaning Table",
+        "Classification": "Open Space\\Fixtures\\Fish Cleaning Station"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 15,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.034550548355,
+          -27.1930004187539
+        ]
+      },
+      "properties": {
+        "OBJECTID": 15,
+        "Asset_Number": "A00357233",
+        "Description": "Fish Cleaning Table",
+        "Classification": "Open Space\\Fixtures\\Fish Cleaning Station"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 16,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.044379646116,
+          -27.2769256790803
+        ]
+      },
+      "properties": {
+        "OBJECTID": 16,
+        "Asset_Number": "A00618179",
+        "Description": "Dohles Rocks Foreshore",
+        "Classification": "Open Space\\Fixtures\\Fish Cleaning Station"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 17,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.045547509219,
+          -27.2770594689706
+        ]
+      },
+      "properties": {
+        "OBJECTID": 17,
+        "Asset_Number": "A00577968",
+        "Description": "Dohles Rocks Foreshore",
+        "Classification": "Open Space\\Fixtures\\Fish Cleaning Station"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 18,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.116832601293,
+          -27.2103275983475
+        ]
+      },
+      "properties": {
+        "OBJECTID": 18,
+        "Asset_Number": "A00414884",
+        "Description": "Queens Beach Park",
+        "Classification": "Open Space\\Fixtures\\Fish Cleaning Station"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 19,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.102441915729,
+          -27.2604062698812
+        ]
+      },
+      "properties": {
+        "OBJECTID": 19,
+        "Asset_Number": "A00458033",
+        "Description": "Crockatt Park",
+        "Classification": "Open Space\\Fixtures\\Fish Cleaning Station"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 20,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.086704016085,
+          -27.2596332709237
+        ]
+      },
+      "properties": {
+        "OBJECTID": 20,
+        "Asset_Number": "A00046095",
+        "Description": "Pelican Park",
+        "Classification": "Open Space\\Fixtures\\Fish Cleaning Station"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 21,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.144264531814,
+          -27.0644459493566
+        ]
+      },
+      "properties": {
+        "OBJECTID": 21,
+        "Asset_Number": "A00147278",
+        "Description": "Sylvan Beach Esplanade",
+        "Classification": "Open Space\\Fixtures\\Fish Cleaning Station"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 22,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.15764839252,
+          -27.0838997862295
+        ]
+      },
+      "properties": {
+        "OBJECTID": 22,
+        "Asset_Number": "A00913366",
+        "Description": "Bongaree Jetty",
+        "Classification": "Open Space\\Fixtures\\Fish Cleaning Station"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 23,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.134226762347,
+          -27.0693228755835
+        ]
+      },
+      "properties": {
+        "OBJECTID": 23,
+        "Asset_Number": "A00902758",
+        "Description": "Kal-ma-kuta Drive Park",
+        "Classification": "Open Space\\Fixtures\\Fish Cleaning Station"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 24,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.133864664542,
+          -27.0673846803505
+        ]
+      },
+      "properties": {
+        "OBJECTID": 24,
+        "Asset_Number": "A00902757",
+        "Description": "Turners Camp",
+        "Classification": "Open Space\\Fixtures\\Fish Cleaning Station"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 25,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.158081655206,
+          -27.0805023768687
+        ]
+      },
+      "properties": {
+        "OBJECTID": 25,
+        "Asset_Number": "A00800150",
+        "Description": "Welsby Parade Park",
+        "Classification": "Open Space\\Fixtures\\Fish Cleaning Station"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 26,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.098834142782,
+          -27.031632660191
+        ]
+      },
+      "properties": {
+        "OBJECTID": 26,
+        "Asset_Number": "A00825001",
+        "Description": "Toorbul Esplanade",
+        "Classification": "Open Space\\Fixtures\\Fish Cleaning Station"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 27,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.156566074063,
+          -27.0723209691567
+        ]
+      },
+      "properties": {
+        "OBJECTID": 27,
+        "Asset_Number": "A00541774",
+        "Description": "Dolphin Drive Park (West)",
+        "Classification": "Open Space\\Fixtures\\Fish Cleaning Station"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 28,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.102285075626,
+          -27.2650172631069
+        ]
+      },
+      "properties": {
+        "OBJECTID": 28,
+        "Asset_Number": "A00300163",
+        "Description": "Fish Cleaning Table",
+        "Classification": "Open Space\\Fixtures\\Fish Cleaning Station"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 29,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.043258514554,
+          -27.2771076926219
+        ]
+      },
+      "properties": {
+        "OBJECTID": 29,
+        "Asset_Number": "A00618178",
+        "Description": "Dohles Rocks Foreshore",
+        "Classification": "Open Space\\Fixtures\\Fish Cleaning Station"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 30,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.102531774532,
+          -27.2650631041153
+        ]
+      },
+      "properties": {
+        "OBJECTID": 30,
+        "Asset_Number": "A00349987",
+        "Description": "Fish Cleaning Table",
+        "Classification": "Open Space\\Fixtures\\Fish Cleaning Station"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 31,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.070664341601,
+          -26.999617120941
+        ]
+      },
+      "properties": {
+        "OBJECTID": 31,
+        "Asset_Number": "A00307096",
+        "Description": "Pumicestone Park",
+        "Classification": "Open Space\\Fixtures\\Fish Cleaning Station"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 32,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.031085696153,
+          -27.1490762455767
+        ]
+      },
+      "properties": {
+        "OBJECTID": 32,
+        "Asset_Number": "A00135691",
+        "Description": "Fish Cleaning Table",
+        "Classification": "Open Space\\Fixtures\\Fish Cleaning Station"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 33,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.116986426693,
+          -27.2261728287199
+        ]
+      },
+      "properties": {
+        "OBJECTID": 33,
+        "Asset_Number": "A00197510",
+        "Description": "Redcliffe Jetty",
+        "Classification": "Marine\\Coastal Facilities\\Jetty"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 34,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.157919291092,
+          -27.0839237995171
+        ]
+      },
+      "properties": {
+        "OBJECTID": 34,
+        "Asset_Number": "A00146734",
+        "Description": "Bongaree Jetty",
+        "Classification": "Marine\\Coastal Facilities\\Jetty"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 35,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.102998605615,
+          -27.2641956064444
+        ]
+      },
+      "properties": {
+        "OBJECTID": 35,
+        "Asset_Number": "A00247916",
+        "Description": "Woody Point Jetty",
+        "Classification": "Marine\\Coastal Facilities\\Jetty"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 37,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.077610419212,
+          -27.033520852324
+        ]
+      },
+      "properties": {
+        "OBJECTID": 37,
+        "Asset_Number": "A00225571",
+        "Description": "Way Street Park",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 39,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.097105380376,
+          -27.0538945815025
+        ]
+      },
+      "properties": {
+        "OBJECTID": 39,
+        "Asset_Number": "A00201964",
+        "Description": "Moffatt Esplanade Foreshore",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 40,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.133747162197,
+          -27.0671536301516
+        ]
+      },
+      "properties": {
+        "OBJECTID": 40,
+        "Asset_Number": "A00203779",
+        "Description": "Turners Camp",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 41,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.117335914318,
+          -27.2331823286036
+        ]
+      },
+      "properties": {
+        "OBJECTID": 41,
+        "Asset_Number": "A00614095",
+        "Description": "Settlement Cove Park",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 43,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.158332011814,
+          -27.0842755584608
+        ]
+      },
+      "properties": {
+        "OBJECTID": 43,
+        "Asset_Number": "A00460163",
+        "Description": "Brennan Park",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 44,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.133544452631,
+          -27.0459559908057
+        ]
+      },
+      "properties": {
+        "OBJECTID": 44,
+        "Asset_Number": "A00501892",
+        "Description": "Solander Esplanade Park",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 45,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.158098182376,
+          -27.0809198709326
+        ]
+      },
+      "properties": {
+        "OBJECTID": 45,
+        "Asset_Number": "A00074230",
+        "Description": "Welsby Parade Park",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 46,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          152.930405446186,
+          -27.0931681315784
+        ]
+      },
+      "properties": {
+        "OBJECTID": 46,
+        "Asset_Number": "A00607195",
+        "Description": "Moloney Place Park",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 47,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.102313945517,
+          -27.2603320392775
+        ]
+      },
+      "properties": {
+        "OBJECTID": 47,
+        "Asset_Number": "A00406299",
+        "Description": "Crockatt Park",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 48,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.097347197559,
+          -27.0305979491648
+        ]
+      },
+      "properties": {
+        "OBJECTID": 48,
+        "Asset_Number": "A00151023",
+        "Description": "Toorbul Esplanade (Foreshore) (North)",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 49,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.158033024852,
+          -27.0803899060705
+        ]
+      },
+      "properties": {
+        "OBJECTID": 49,
+        "Asset_Number": "A00022682",
+        "Description": "Welsby Parade Park",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 50,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          152.996925674472,
+          -27.3039576783494
+        ]
+      },
+      "properties": {
+        "OBJECTID": 50,
+        "Asset_Number": "A00486251",
+        "Description": "Bob Bell Park",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 51,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.096023400167,
+          -27.0296701689059
+        ]
+      },
+      "properties": {
+        "OBJECTID": 51,
+        "Asset_Number": "A00029271",
+        "Description": "Toorbul Esplanade (Foreshore) (North)",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 52,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.044437375147,
+          -27.2769917682304
+        ]
+      },
+      "properties": {
+        "OBJECTID": 52,
+        "Asset_Number": "A00482465",
+        "Description": "Dohles Rocks Foreshore",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 53,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.030722234012,
+          -27.1858628573518
+        ]
+      },
+      "properties": {
+        "OBJECTID": 53,
+        "Asset_Number": "A00920318",
+        "Description": "Captain Cook Parade Park",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 55,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          152.980566788133,
+          -27.2749445210596
+        ]
+      },
+      "properties": {
+        "OBJECTID": 55,
+        "Asset_Number": "A00610729",
+        "Description": "Leis Park",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 57,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.071321535863,
+          -27.000002300814
+        ]
+      },
+      "properties": {
+        "OBJECTID": 57,
+        "Asset_Number": "A00353570",
+        "Description": "Pioneer Park",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 58,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.155623686818,
+          -27.0745652613653
+        ]
+      },
+      "properties": {
+        "OBJECTID": 58,
+        "Asset_Number": "A00427980",
+        "Description": "Welsby Parade Park",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 59,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.036266938073,
+          -27.1448454280719
+        ]
+      },
+      "properties": {
+        "OBJECTID": 59,
+        "Asset_Number": "A00458286",
+        "Description": "Moreton Terrace Park",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 60,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          152.948015062616,
+          -27.0909225829818
+        ]
+      },
+      "properties": {
+        "OBJECTID": 60,
+        "Asset_Number": "A00570471",
+        "Description": "Caboolture Sports Centre",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 61,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.152486150826,
+          -27.0704001993558
+        ]
+      },
+      "properties": {
+        "OBJECTID": 61,
+        "Asset_Number": "A00479411",
+        "Description": "Welsby Parade Park",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 62,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.144033312146,
+          -27.0643144749657
+        ]
+      },
+      "properties": {
+        "OBJECTID": 62,
+        "Asset_Number": "A00494325",
+        "Description": "Sylvan Beach Esplanade",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 64,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          152.968916828446,
+          -27.2707757636406
+        ]
+      },
+      "properties": {
+        "OBJECTID": 64,
+        "Asset_Number": "A00208707",
+        "Description": "Mungarra Reserve",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 65,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          152.964011670931,
+          -27.2765879801662
+        ]
+      },
+      "properties": {
+        "OBJECTID": 65,
+        "Asset_Number": "A00002483",
+        "Description": "Mungarra Reserve",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 66,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.116995142816,
+          -27.2102995120181
+        ]
+      },
+      "properties": {
+        "OBJECTID": 66,
+        "Asset_Number": "A00343494",
+        "Description": "Queens Beach Park",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 67,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.133952624444,
+          -27.0694859233263
+        ]
+      },
+      "properties": {
+        "OBJECTID": 67,
+        "Asset_Number": "A00188259",
+        "Description": "Kal-ma-kuta Drive Park",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 68,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.086499317652,
+          -27.2595136882854
+        ]
+      },
+      "properties": {
+        "OBJECTID": 68,
+        "Asset_Number": "A00290300",
+        "Description": "Pelican Park",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 69,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.050625102766,
+          -27.1388607427786
+        ]
+      },
+      "properties": {
+        "OBJECTID": 69,
+        "Asset_Number": "A00404201",
+        "Description": "T.E. Bonney Reserve",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 70,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.031586360575,
+          -27.1880752362053
+        ]
+      },
+      "properties": {
+        "OBJECTID": 70,
+        "Asset_Number": "A00016443",
+        "Description": "Esplanade Park",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 71,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.155188263877,
+          -27.0727909714642
+        ]
+      },
+      "properties": {
+        "OBJECTID": 71,
+        "Asset_Number": "A00377580",
+        "Description": "Welsby Parade Park",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 72,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.113309745709,
+          -27.085957293735
+        ]
+      },
+      "properties": {
+        "OBJECTID": 72,
+        "Asset_Number": "A00074229",
+        "Description": "Godwin Beach Esplanade",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 75,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.159462471607,
+          -27.0685061923664
+        ]
+      },
+      "properties": {
+        "OBJECTID": 75,
+        "Asset_Number": "A00479082",
+        "Description": "Phoenix Avenue Park",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 76,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.036127212106,
+          -27.1452180421108
+        ]
+      },
+      "properties": {
+        "OBJECTID": 76,
+        "Asset_Number": "A00494326",
+        "Description": "Moreton Terrace Park",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 77,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.031556733984,
+          -27.1493971192222
+        ]
+      },
+      "properties": {
+        "OBJECTID": 77,
+        "Asset_Number": "A00256852",
+        "Description": "Uhlmann Road Park",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 79,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.093101331979,
+          -27.2173582398385
+        ]
+      },
+      "properties": {
+        "OBJECTID": 79,
+        "Asset_Number": "A00617240",
+        "Description": "Talobilla Park",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 81,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.143916238646,
+          -27.063616995348
+        ]
+      },
+      "properties": {
+        "OBJECTID": 81,
+        "Asset_Number": "A00036979",
+        "Description": "Sylvan Beach Esplanade",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 82,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.043306579166,
+          -27.2770867178039
+        ]
+      },
+      "properties": {
+        "OBJECTID": 82,
+        "Asset_Number": "A00618217",
+        "Description": "Dohles Rocks Foreshore",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 83,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.033597533914,
+          -27.1919364906654
+        ]
+      },
+      "properties": {
+        "OBJECTID": 83,
+        "Asset_Number": "A00117814",
+        "Description": "Deception Bay Esplanade Park",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 84,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.045575480477,
+          -27.2770679039767
+        ]
+      },
+      "properties": {
+        "OBJECTID": 84,
+        "Asset_Number": "A00159254",
+        "Description": "Dohles Rocks Foreshore",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 85,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.016456833685,
+          -27.2868859976931
+        ]
+      },
+      "properties": {
+        "OBJECTID": 85,
+        "Asset_Number": "A00309193",
+        "Description": "Acacia Park",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 86,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.010820929624,
+          -27.1513816440458
+        ]
+      },
+      "properties": {
+        "OBJECTID": 86,
+        "Asset_Number": "A00100990",
+        "Description": "O'Leary Avenue Reserve",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 87,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.111000197535,
+          -27.2481452030352
+        ]
+      },
+      "properties": {
+        "OBJECTID": 87,
+        "Asset_Number": "A00356037",
+        "Description": "Margate Beach Park",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 88,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.029497655899,
+          -27.1810585524225
+        ]
+      },
+      "properties": {
+        "OBJECTID": 88,
+        "Asset_Number": "A00105046",
+        "Description": "Captain Cook Parade Park",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 89,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.100151655116,
+          -27.0320868230551
+        ]
+      },
+      "properties": {
+        "OBJECTID": 89,
+        "Asset_Number": "A00240199",
+        "Description": "Toorbul Esplanade Foreshore",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 90,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.041442090853,
+          -27.2777398486133
+        ]
+      },
+      "properties": {
+        "OBJECTID": 90,
+        "Asset_Number": "A00006793",
+        "Description": "Dohles Rocks Foreshore",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 91,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.103748236619,
+          -27.0695384430558
+        ]
+      },
+      "properties": {
+        "OBJECTID": 91,
+        "Asset_Number": "A00309194",
+        "Description": "Sandheath Place Park",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 92,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.099397595091,
+          -27.0312836180912
+        ]
+      },
+      "properties": {
+        "OBJECTID": 92,
+        "Asset_Number": "A00290448",
+        "Description": "Toorbul Esplanade Foreshore",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 93,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          153.036981019635,
+          -27.1270708960645
+        ]
+      },
+      "properties": {
+        "OBJECTID": 93,
+        "Asset_Number": "A00055190",
+        "Description": "Timothy Esplanade Foreshore",
+        "Classification": "Marine\\Coastal Facilities\\Ramp"
+      }
+    }
+  ]
+}

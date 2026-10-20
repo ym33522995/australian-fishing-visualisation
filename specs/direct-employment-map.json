@@ -1,0 +1,398 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "State-level fallback: 15 published direct-employment regional estimates are summed to 8 state/territory totals. Interior representative points are geographic summaries, not workplaces.",
+  "width": "container",
+  "height": 460,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "params": [
+    {
+      "name": "employmentState",
+      "value": "All Australia",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All Australia",
+          "New South Wales",
+          "Victoria",
+          "Queensland",
+          "South Australia",
+          "Western Australia",
+          "Tasmania",
+          "Northern Territory",
+          "Australian Capital Territory"
+        ],
+        "name": "State/territory: "
+      }
+    },
+    {
+      "name": "employmentZoom",
+      "value": 1
+    },
+    {
+      "name": "employmentPanX",
+      "value": 0
+    },
+    {
+      "name": "employmentPanY",
+      "value": 0
+    }
+  ],
+  "projection": {
+    "type": "albers",
+    "rotate": [
+      -132,
+      0,
+      0
+    ],
+    "center": [
+      0,
+      -27
+    ],
+    "parallels": [
+      -18,
+      -36
+    ],
+    "scale": {
+      "expr": "min((width - 32) / 0.797328323948004, (height - 32) / 0.652283640659195) * employmentZoom"
+    },
+    "translate": {
+      "expr": "[width/2 + width * employmentZoom * employmentPanX - 0.008767494129710 * min((width - 32) / 0.797328323948004, (height - 32) / 0.652283640659195) * employmentZoom, height/2 + height * employmentZoom * employmentPanY - 0.013010239209085 * min((width - 32) / 0.797328323948004, (height - 32) / 0.652283640659195) * employmentZoom]"
+    }
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/geojson/australian-states.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e6ebea",
+        "stroke": "#ffffff",
+        "strokeWidth": 1,
+        "clip": true
+      }
+    },
+    {
+      "data": {
+        "url": "data/csv/direct-employment-state-totals.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "longitude": "number",
+            "latitude": "number",
+            "direct_employment_fte": "number",
+            "reference_period": "string"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "employmentState === 'All Australia' || datum.state === employmentState"
+        },
+        {
+          "calculate": "replace(replace(replace(replace(replace(replace(replace(replace(replace(datum.source_regions, /ACT/g, \"Australian Capital Territory\"), /NSW/g, \"New South Wales\"), /NT/g, \"Northern Territory\"), /Qld/g, \"Queensland\"), /SA/g, \"South Australia\"), /Tas/g, \"Tasmania\"), /Vic/g, \"Victoria\"), /WA/g, \"Western Australia\"), /FTE/g, \"full-time equivalent\")",
+          "as": "source_regions_full_name"
+        },
+        {
+          "calculate": "replace(datum.regional_total_explanation, /ACT/g, \"Australian Capital Territory\")",
+          "as": "regional_total_explanation_full_name"
+        },
+        {
+          "calculate": "replace(datum.source_reference, /FRDC/g, \"Fisheries Research and Development Corporation\")",
+          "as": "source_reference_full_name"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "color": "#5a4632",
+        "opacity": 0.8,
+        "stroke": "#ffffff",
+        "strokeWidth": 0.7,
+        "clip": true
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "direct_employment_fte",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "domain": [
+              0,
+              12000
+            ],
+            "range": [
+              0,
+              1800
+            ],
+            "zero": true,
+            "nice": false
+          },
+          "legend": {
+            "title": [
+              "Modelled direct employment",
+              "2018-19 (FTE)"
+            ],
+            "values": [
+              1000,
+              5000,
+              10000
+            ],
+            "format": ",.0f",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "columns": 3,
+            "symbolFillColor": "#5a4632",
+            "symbolOpacity": 0.8
+          }
+        },
+        "order": {
+          "field": "direct_employment_fte",
+          "type": "quantitative",
+          "sort": "descending"
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "Region (state-level fallback)"
+          },
+          {
+            "field": "direct_employment_fte",
+            "type": "quantitative",
+            "title": "Modelled direct employment (full-time equivalent)",
+            "format": ",.0f"
+          },
+          {
+            "field": "reference_period",
+            "type": "nominal",
+            "title": "Reference period"
+          },
+          {
+            "field": "source_regions_full_name",
+            "type": "nominal",
+            "title": "Published source regions"
+          },
+          {
+            "field": "regional_total_explanation_full_name",
+            "type": "nominal",
+            "title": "Regional-total explanation"
+          },
+          {
+            "field": "source_reference_full_name",
+            "type": "nominal",
+            "title": "Source reference"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/csv/direct-employment-state-totals.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "longitude": "number",
+            "latitude": "number",
+            "direct_employment_fte": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "employmentState === 'All Australia' || datum.state === employmentState"
+        },
+        {
+          "filter": "indexof(['VIC', 'TAS', 'ACT'], datum.state_abbreviation) < 0"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#20343e",
+        "dy": -28,
+        "clip": true
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "state_abbreviation",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/csv/direct-employment-state-totals.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "longitude": "number",
+            "latitude": "number",
+            "direct_employment_fte": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "employmentState === 'All Australia' || datum.state === employmentState"
+        },
+        {
+          "filter": "datum.state_abbreviation === 'TAS'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#20343e",
+        "dy": 0,
+        "clip": true,
+        "dx": 34,
+        "align": "left",
+        "baseline": "middle"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "state_abbreviation",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/csv/direct-employment-state-totals.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "longitude": "number",
+            "latitude": "number",
+            "direct_employment_fte": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "employmentState === 'All Australia' || datum.state === employmentState"
+        },
+        {
+          "filter": "datum.state_abbreviation === 'VIC'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#20343e",
+        "dy": 0,
+        "clip": true,
+        "dx": -30,
+        "align": "right",
+        "baseline": "middle"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "state_abbreviation",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/csv/direct-employment-state-totals.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "longitude": "number",
+            "latitude": "number",
+            "direct_employment_fte": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "employmentState === 'All Australia' || datum.state === employmentState"
+        },
+        {
+          "filter": "datum.state_abbreviation === 'ACT'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#20343e",
+        "dy": 0,
+        "clip": true,
+        "dx": 18,
+        "align": "left",
+        "baseline": "middle"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "state_abbreviation",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "system-ui, sans-serif",
+    "view": {
+      "stroke": null
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "titleFontSize": 12,
+      "labelColor": "#20343e",
+      "titleColor": "#20343e"
+    }
+  }
+}

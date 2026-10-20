@@ -1,0 +1,359 @@
+:root {
+  --banner-background: #24464B;
+  --banner-text: #F7FAF9;
+  --page-background: #F3F6F5;
+  --card-background: #FFFFFF;
+  --main-text: #243638;
+  --secondary-text: #526466;
+  --border-colour: #D7E1DE;
+  --accent: #356970;
+  --page-gutter: 5vw;
+  color-scheme: light;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+  color: var(--main-text);
+  background: var(--page-background);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.page-footer {
+  padding: 1.25rem var(--page-gutter);
+  border-top: 1px solid var(--border-colour);
+  color: var(--secondary-text);
+  font-size: 0.875rem;
+}
+.page-footer p { margin: 0; }
+.page-footer span { margin-inline: 0.5rem; }
+
+.header-content,
+main {
+  width: calc(100% - 2 * var(--page-gutter));
+  margin-inline: auto;
+}
+
+.page-header {
+  background: var(--banner-background);
+  color: var(--banner-text);
+  padding-block: clamp(2.5rem, 5vw, 5rem);
+  margin-bottom: clamp(2rem, 4vw, 4rem);
+}
+
+.page-header p { max-width: 72ch; font-size: 1.125rem; }
+.page-header a { color: var(--banner-text); }
+.page-header :focus-visible { outline-color: var(--banner-text); }
+main { padding-bottom: 2rem; }
+
+h1, h2, h3 {
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 1.25rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+main { counter-reset: section; }
+section { counter-increment: section; }
+h2::before {
+  content: counter(section, decimal-leading-zero);
+  color: var(--accent);
+  font: 500 0.875rem system-ui, sans-serif;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.35rem;
+}
+h2::after {
+  content: "";
+  flex: 1;
+  min-width: 1rem;
+  height: 1px;
+  background: var(--accent);
+}
+
+h3 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.2rem, 1.5vw, 1.4rem);
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 0.2em;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+section {
+  margin-bottom: 3rem;
+  scroll-margin-top: 1rem;
+}
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: 1.5rem;
+}
+
+.chart-card {
+  min-width: 0;
+  padding: clamp(0.875rem, 1.5vw, 1.25rem);
+  border: 1px solid var(--border-colour);
+  border-radius: 0.5rem;
+  background: var(--card-background);
+}
+
+.chart-container {
+  width: 100%;
+  min-width: 0;
+
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  border: 1px dashed #a6b9c1;
+  border-radius: 0.25rem;
+  background: #f8fafb;
+  color: #506671;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.chart-container p {
+  margin: 0;
+}
+
+.chart-card-wide,
+.chart-grid > p {
+  grid-column: 1 / -1;
+}
+
+.participation-map,
+.participation-comparison,
+.occurrence-map,
+.facilities-map,
+.catch-ranking,
+.depth-map,
+.effort-pie,
+.employment-map,
+.wellbeing-chart,
+.catch-trends {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: var(--card-background);
+  text-align: left;
+}
+
+.participation-map.vega-embed,
+.participation-comparison.vega-embed,
+.occurrence-map.vega-embed,
+.facilities-map.vega-embed,
+.catch-ranking.vega-embed,
+.depth-map.vega-embed,
+.effort-pie.vega-embed,
+.employment-map.vega-embed,
+.wellbeing-chart.vega-embed,
+.catch-trends.vega-embed {
+  padding-right: 0;
+}
+
+.participation-map svg,
+.participation-comparison svg,
+.occurrence-map svg,
+.facilities-map svg,
+.catch-ranking svg,
+.depth-map svg,
+.effort-pie svg,
+.employment-map svg,
+.wellbeing-chart svg,
+.catch-trends svg {
+  display: block;
+}
+
+.map-introduction {
+  font-size: 1.125rem;
+}
+
+/* Keep geographic labels readable when proportional circles overlap them. */
+.employment-map .mark-text.role-mark text {
+  paint-order: stroke;
+  stroke: #ffffff;
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+
+.employment-map .vega-bindings,
+.occurrence-map .vega-bindings,
+.facilities-map .vega-bindings,
+.catch-ranking .vega-bindings,
+.depth-map .vega-bindings,
+.catch-trends .vega-bindings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  margin-block: 1rem;
+  color: var(--main-text);
+}
+
+.occurrence-map svg,
+.facilities-map svg {
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+.occurrence-map svg.is-panning,
+.facilities-map svg.is-panning { cursor: grabbing; }
+
+.employment-map .vega-bind,
+.occurrence-map .vega-bind,
+.facilities-map .vega-bind,
+.catch-ranking .vega-bind,
+.depth-map .vega-bind,
+.catch-trends .vega-bind {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  max-width: 100%;
+}
+
+.employment-map select,
+.occurrence-map select,
+.facilities-map select,
+.catch-ranking select,
+.depth-map select,
+.catch-trends select,
+button {
+  max-width: 100%;
+  padding: 0.4rem 0.6rem;
+  font: inherit;
+  color: var(--main-text);
+  background: var(--card-background);
+  border: 1px solid #a6b9c1;
+  border-radius: 0.25rem;
+}
+
+button { cursor: pointer; }
+button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.depth-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+.depth-map svg { touch-action: pan-y; }
+.depth-map.is-exploring svg { cursor: grab; touch-action: none; }
+.depth-map.is-panning svg { cursor: grabbing; }
+.depth-map:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.chart-note,
+.chart-source {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+}
+
+.chart-source {
+  color: var(--secondary-text);
+}
+
+.missing-value-swatch {
+  display: inline-block;
+  width: 0.9rem;
+  height: 0.9rem;
+  margin-right: 0.3rem;
+  border: 1px solid #777;
+  background: #b8b8b8;
+  vertical-align: middle;
+}
+
+/* At 1280px, each paired card has about 540px for its chart. */
+@media (min-width: 1280px) {
+  .chart-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .chart-card {
+    display: grid;
+    grid-row: span 3;
+    grid-template-rows: subgrid;
+    align-self: stretch;
+    row-gap: 0.75rem;
+  }
+}
+
+.chart-intro, .chart-body, .chart-footer { min-width: 0; }
+.chart-intro > :last-child, .chart-footer > :last-child { margin-bottom: 0; }
+.chart-footer > .chart-note:first-child { margin-top: 0; }
+.chart-card p { max-width: none; }
+.chart-grid > p, section > p { max-width: none; }
+.chart-card p { margin-bottom: 0.75rem; }
+.chart-card h3 { font-size: clamp(1.1rem, 1.35vw, 1.3rem); margin-bottom: 0.75rem; }
+.chart-card > :last-child { margin-bottom: 0; }
+.chart-source { overflow-wrap: anywhere; }
+.vega-bindings input, .vega-bindings select { min-width: 0; max-width: 100%; }
+.vega-bindings label { min-width: 0; max-width: 100%; }
+button:disabled { cursor: default; }
+.cursor-map svg { cursor: grab; touch-action: none; user-select: none; }
+.cursor-map svg.is-panning { cursor: grabbing; }
+
+.reference-marker { font: 500 0.7em system-ui, sans-serif; white-space: nowrap; }
+.reference-list { margin: 1.5rem 0 0; padding: 0; list-style: none; }
+.reference-list > li { margin-bottom: 1.5rem; }
+.reference-label { margin: 0 0 0.35rem; font-size: 0.875rem; font-weight: 600; }
+.reference-list .chart-source { margin: 0; padding-left: 2rem; text-indent: -2rem; }
+.section-summary {
+  border: 1px solid var(--banner-background);
+  border-top: 4px solid var(--banner-background);
+  border-radius: 0.75rem;
+  padding: clamp(1.25rem, 2.5vw, 2.25rem);
+  margin-top: 1.5rem;
+  color: var(--main-text);
+  background: var(--card-background);
+  line-height: 1.7;
+}
+.summary-heading { margin-bottom: 1.75rem; }
+.summary-kicker {
+  display: block;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+.summary-heading h3 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.4rem, 2.2vw, 1.85rem); }
+.summary-flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); list-style: none; padding: 0; margin: 0; gap: 1.75rem; }
+.summary-flow:has(> :nth-child(4)) { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.summary-insight { position: relative; min-width: 0; padding-top: 1rem; border-top: 1px solid var(--border-colour); }
+.summary-step { display: block; color: var(--secondary-text); font-size: 0.75rem; letter-spacing: 0.08em; margin-bottom: 0.65rem; }
+.summary-highlight { display: block; color: var(--banner-background); font-size: clamp(1.65rem, 2.5vw, 2.5rem); line-height: 1.15; font-weight: 750; letter-spacing: -0.035em; }
+.summary-insight h4 { margin: 0.5rem 0 0.75rem; font-size: 0.95rem; line-height: 1.4; }
+.summary-insight p { margin: 0; font-size: 0.875rem; color: var(--secondary-text); }
+.summary-insight:not(:last-child)::after { content: "\2192"; position: absolute; top: 0.5rem; right: -1.3rem; color: var(--accent); }
+.summary-next { display: flex; gap: 0.65rem; align-items: baseline; border-top: 1px solid var(--border-colour); padding-top: 1rem; margin: 1.5rem 0 0; font-size: 0.95rem; }
+.summary-next span { color: var(--accent); }
+@media (max-width: 1100px) {
+  .summary-flow:has(> :nth-child(4)) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .summary-flow:has(> :nth-child(4)) .summary-insight:nth-child(2)::after { content: none; }
+}
+@media (max-width: 700px) {
+  .summary-flow, .summary-flow:has(> :nth-child(4)) { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+  .summary-insight:not(:last-child)::after { content: none; }
+}

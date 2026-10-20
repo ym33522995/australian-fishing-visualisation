@@ -1,0 +1,518 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Queensland residents aged 5+, fishing in Queensland. Nine historical Table 20 observations and two reconciled 2019-20 observations. Bream 2019 assembled from matching published Catch component totals; Flathead 2019 omitted. Dashed segments mark a methodological break. Whiskers only where a verified total SE is available.",
+  "width": "container",
+  "height": 390,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "data": {
+    "url": "data/csv/queensland-catch-trends.csv",
+    "name": "catch_trends",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "survey_start_year": "number",
+        "total_caught": "number"
+      }
+    }
+  },
+  "params": [
+    {
+      "name": "catchTrendGroup",
+      "value": "All groups",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All groups",
+          "Bream",
+          "Flathead",
+          "Whiting"
+        ],
+        "name": "Species/group: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "catchTrendGroup === 'All groups' || datum.species_group === catchTrendGroup"
+    },
+    {
+      "calculate": "datum.standard_error === 'NA' ? null : toNumber(datum.standard_error)",
+      "as": "verified_se"
+    },
+    {
+      "calculate": "datum.standard_error === 'NA' ? 'Not reported' : format(datum.verified_se, ',.0f') + ' (whiskers: ±1 SE)'",
+      "as": "se_display"
+    },
+    {
+      "calculate": "datum.rse_pct === 'NA' ? 'Exact RSE not reported' : format(toNumber(datum.rse_pct), '.2f') + '%'",
+      "as": "rse_display"
+    },
+    {
+      "calculate": "datum.source_table + (datum.source_printed_page === 'NA' ? ' (online dashboard; no PDF page)' : ', printed ' + datum.source_printed_page + ' / PDF ' + datum.source_pdf_page)",
+      "as": "source_reference"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "survey_start_year",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          2000,
+          2022
+        ],
+        "zero": false,
+        "nice": false
+      },
+      "axis": {
+        "title": "Survey period",
+        "values": [
+          2000,
+          2010,
+          2013,
+          2019
+        ],
+        "labelExpr": "datum.value === 2000 ? '2000-01' : datum.value === 2010 ? '2010-11' : datum.value === 2013 ? '2013-14' : '2019-20'",
+        "labelAngle": {
+          "expr": "width < 400 ? -60 : 0"
+        },
+        "labelOverlap": false,
+        "grid": false,
+        "labelAlign": {
+          "expr": "width < 400 ? 'right' : 'center'"
+        },
+        "labelBaseline": {
+          "expr": "width < 400 ? 'middle' : 'top'"
+        }
+      }
+    },
+    "y": {
+      "field": "total_caught",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          0,
+          7500000
+        ],
+        "zero": true,
+        "nice": false
+      },
+      "axis": {
+        "title": "Estimated total catch (number of fish)",
+        "tickCount": 6,
+        "labelExpr": "datum.value === 0 ? '0' : datum.value >= 1000000 ? format(datum.value/1000000, '~g') + 'M' : format(datum.value/1000, '~g') + 'k'",
+        "grid": true
+      }
+    },
+    "color": {
+      "field": "species_group",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Bream",
+          "Flathead",
+          "Whiting"
+        ],
+        "range": [
+          "#882255",
+          "#6f4c9b",
+          "#828220"
+        ]
+      },
+      "legend": {
+        "title": "Species/group",
+        "orient": "top",
+        "direction": "horizontal"
+      }
+    }
+  },
+  "layer": [
+    {
+      "transform": [
+        {
+          "filter": "datum.survey_start_year <= 2013"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "interpolate": "linear",
+        "strokeWidth": 2.5
+      },
+      "encoding": {
+        "order": {
+          "field": "survey_start_year",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.survey_start_year >= 2013 && datum.species_group !== 'Flathead'"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "interpolate": "linear",
+        "strokeWidth": 2.5,
+        "strokeDash": [
+          6,
+          4
+        ]
+      },
+      "encoding": {
+        "order": {
+          "field": "survey_start_year",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "isValid(datum.verified_se)"
+        },
+        {
+          "calculate": "datum.total_caught - datum.verified_se",
+          "as": "se_lower"
+        },
+        {
+          "calculate": "datum.total_caught + datum.verified_se",
+          "as": "se_upper"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "y": {
+          "field": "se_lower",
+          "type": "quantitative"
+        },
+        "y2": {
+          "field": "se_upper"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "isValid(datum.verified_se)"
+        },
+        {
+          "calculate": "datum.total_caught - datum.verified_se",
+          "as": "se_lower"
+        },
+        {
+          "calculate": "datum.total_caught + datum.verified_se",
+          "as": "se_upper"
+        }
+      ],
+      "mark": {
+        "type": "tick",
+        "orient": "horizontal",
+        "size": 12,
+        "thickness": 1.5
+      },
+      "encoding": {
+        "y": {
+          "field": "se_lower",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "isValid(datum.verified_se)"
+        },
+        {
+          "calculate": "datum.total_caught - datum.verified_se",
+          "as": "se_lower"
+        },
+        {
+          "calculate": "datum.total_caught + datum.verified_se",
+          "as": "se_upper"
+        }
+      ],
+      "mark": {
+        "type": "tick",
+        "orient": "horizontal",
+        "size": 12,
+        "thickness": 1.5
+      },
+      "encoding": {
+        "y": {
+          "field": "se_upper",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 75,
+        "stroke": "white",
+        "strokeWidth": 1,
+        "opacity": 1
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "species_group",
+            "type": "nominal",
+            "title": "Species/group"
+          },
+          {
+            "field": "survey_period",
+            "type": "nominal",
+            "title": "Survey period"
+          },
+          {
+            "field": "total_caught",
+            "type": "quantitative",
+            "title": "Estimated total catch",
+            "format": ",.0f"
+          },
+          {
+            "field": "se_display",
+            "type": "nominal",
+            "title": "Standard error"
+          },
+          {
+            "field": "rse_display",
+            "type": "nominal",
+            "title": "RSE"
+          },
+          {
+            "field": "reliability_flag",
+            "type": "nominal",
+            "title": "Reliability"
+          },
+          {
+            "field": "total_method",
+            "type": "nominal",
+            "title": "Total method"
+          },
+          {
+            "field": "source_reference",
+            "type": "nominal",
+            "title": "Source"
+          },
+          {
+            "field": "uncertainty_reference",
+            "type": "nominal",
+            "title": "Uncertainty source"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "joinaggregate": [
+            {
+              "op": "max",
+              "field": "survey_start_year",
+              "as": "last_year"
+            }
+          ],
+          "groupby": [
+            "species_group"
+          ]
+        },
+        {
+          "filter": "datum.species_group === 'Bream' && datum.survey_start_year === datum.last_year"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "dy": -12,
+        "fontSize": 11,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "text": {
+          "condition": {
+            "test": "width >= 350",
+            "field": "species_group",
+            "type": "nominal"
+          },
+          "value": ""
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "joinaggregate": [
+            {
+              "op": "max",
+              "field": "survey_start_year",
+              "as": "last_year"
+            }
+          ],
+          "groupby": [
+            "species_group"
+          ]
+        },
+        {
+          "filter": "datum.species_group === 'Flathead' && datum.survey_start_year === datum.last_year"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "dy": 12,
+        "fontSize": 11,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "text": {
+          "condition": {
+            "test": "width >= 350",
+            "field": "species_group",
+            "type": "nominal"
+          },
+          "value": ""
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "joinaggregate": [
+            {
+              "op": "max",
+              "field": "survey_start_year",
+              "as": "last_year"
+            }
+          ],
+          "groupby": [
+            "species_group"
+          ]
+        },
+        {
+          "filter": "datum.species_group === 'Whiting' && datum.survey_start_year === datum.last_year"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "dy": 12,
+        "fontSize": 11,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "text": {
+          "condition": {
+            "test": "width >= 350",
+            "field": "species_group",
+            "type": "nominal"
+          },
+          "value": ""
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": 2019,
+            "low": 0,
+            "high": 7100000
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#7b8c95",
+        "strokeDash": [
+          3,
+          4
+        ],
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "low",
+          "type": "quantitative"
+        },
+        "y2": {
+          "field": "high"
+        },
+        "color": {
+          "value": "#788890"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": 2019,
+            "note": [
+              "2019-20",
+              "methodology change"
+            ],
+            "high": 7100000
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -6,
+        "dy": 8,
+        "baseline": "top",
+        "fontSize": 11,
+        "color": "#506671"
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "high",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "note"
+        },
+        "color": {
+          "value": "#506671"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "system-ui, sans-serif",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titlePadding": 12,
+      "gridColor": "#e5ecef"
+    },
+    "legend": {
+      "labelFontSize": 12
+    }
+  }
+}

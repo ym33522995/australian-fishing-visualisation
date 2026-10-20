@@ -1,0 +1,9 @@
+age_group,location_group,year,participation_rate_pct
+18-29,Urban,2020,24
+18-29,Regional,2020,31
+30-44,Urban,2020,19
+30-44,Regional,2020,27
+45-64,Urban,2020,15
+45-64,Regional,2020,25
+65+,Urban,2020,12
+65+,Regional,2020,20

@@ -1,0 +1,261 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Published bar labels from FRDC Figure 4.9, printed page 49 / PDF page 63: adults who fished in the last 12 months, 2020. Urban and Regional are directly reported groups. Rates are percentage points, rounded as published.",
+  "width": "container",
+  "height": 300,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "data": {
+    "url": "data/csv/urban_regional_participation.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "number",
+        "participation_rate_pct": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "joinaggregate": [
+        {
+          "op": "min",
+          "field": "participation_rate_pct",
+          "as": "lower_rate"
+        },
+        {
+          "op": "max",
+          "field": "participation_rate_pct",
+          "as": "higher_rate"
+        }
+      ],
+      "groupby": [
+        "age_group",
+        "year"
+      ]
+    },
+    {
+      "calculate": "datum.higher_rate - datum.lower_rate",
+      "as": "gap_pp"
+    },
+    {
+      "calculate": "format(datum.participation_rate_pct, '.0f') + '%'",
+      "as": "rate_label"
+    },
+    {
+      "calculate": "format(datum.gap_pp, '.0f') + ' percentage points'",
+      "as": "gap_label"
+    }
+  ],
+  "encoding": {
+    "y": {
+      "field": "age_group",
+      "type": "ordinal",
+      "sort": [
+        "18-29",
+        "30-44",
+        "45-64",
+        "65+"
+      ],
+      "scale": {
+        "domain": [
+          "18-29",
+          "30-44",
+          "45-64",
+          "65+"
+        ],
+        "reverse": true
+      },
+      "axis": {
+        "title": "Age group",
+        "labelAngle": 0,
+        "labelPadding": 10
+      }
+    },
+    "x": {
+      "field": "participation_rate_pct",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          0,
+          40
+        ],
+        "zero": true
+      },
+      "axis": {
+        "title": "Adult participation (%)",
+        "values": [
+          0,
+          10,
+          20,
+          30,
+          40
+        ],
+        "labelExpr": "datum.value + '%'",
+        "grid": true
+      }
+    },
+    "opacity": {
+      "value": 1
+    },
+    "tooltip": [
+      {
+        "field": "age_group",
+        "type": "nominal",
+        "title": "Age group"
+      },
+      {
+        "field": "location_group",
+        "type": "nominal",
+        "title": "Location group"
+      },
+      {
+        "field": "year",
+        "type": "quantitative",
+        "title": "Year",
+        "format": ".0f"
+      },
+      {
+        "field": "rate_label",
+        "type": "nominal",
+        "title": "Participation"
+      },
+      {
+        "field": "gap_label",
+        "type": "nominal",
+        "title": "Regional − Urban gap"
+      }
+    ]
+  },
+  "layer": [
+    {
+      "transform": [
+        {
+          "filter": "datum.location_group === 'Urban'"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "color": "#7b8c95",
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "x": {
+          "field": "lower_rate",
+          "type": "quantitative"
+        },
+        "x2": {
+          "field": "higher_rate"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 120,
+        "stroke": "#ffffff",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "color": {
+          "field": "location_group",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Urban",
+              "Regional"
+            ],
+            "range": [
+              "#332288",
+              "#aa4499"
+            ]
+          },
+          "legend": {
+            "title": null,
+            "orient": "top",
+            "direction": "horizontal"
+          }
+        },
+        "shape": {
+          "field": "location_group",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Urban",
+              "Regional"
+            ],
+            "range": [
+              "circle",
+              "square"
+            ]
+          },
+          "legend": {
+            "title": null,
+            "orient": "top",
+            "direction": "horizontal"
+          }
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.location_group === 'Urban'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -10,
+        "fontSize": 12,
+        "color": "#20343e"
+      },
+      "encoding": {
+        "text": {
+          "field": "rate_label",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.location_group === 'Regional'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "fontSize": 12,
+        "color": "#20343e"
+      },
+      "encoding": {
+        "text": {
+          "field": "rate_label",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "system-ui, sans-serif",
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titlePadding": 12,
+      "gridColor": "#e5ecef"
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "symbolSize": 120
+    }
+  }
+}

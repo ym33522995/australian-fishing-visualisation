@@ -1,0 +1,189 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Adult recreational fishing participation in 2018. ABS state boundaries are joined to FRDC Table 4.2 survey regions; NSW and ACT share one estimate. Data URLs resolve relative to index.html.",
+  "width": "container",
+  "height": 460,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "title": {
+    "text": "Where is recreational fishing most popular?",
+    "subtitle": [
+      "Colour shows the percentage of adults",
+      "who fished in 2018 (aged 18+)."
+    ],
+    "anchor": "start",
+    "fontSize": 16,
+    "subtitleFontSize": 12,
+    "offset": 16
+  },
+  "projection": {
+    "type": "albers",
+    "rotate": [
+      -132,
+      0,
+      0
+    ],
+    "center": [
+      0,
+      -27
+    ],
+    "parallels": [
+      -18,
+      -36
+    ]
+  },
+  "data": {
+    "url": "data/geojson/australian-states.geojson",
+    "format": {
+      "type": "json",
+      "property": "features"
+    }
+  },
+  "transform": [
+    {
+      "calculate": "datum.properties.state_name_2021 === 'New South Wales' || datum.properties.state_name_2021 === 'Australian Capital Territory' ? 'NSW/ACT' : datum.properties.state_name_2021",
+      "as": "survey_region"
+    },
+    {
+      "lookup": "survey_region",
+      "from": {
+        "data": {
+          "url": "data/csv/participation_by_state.csv",
+          "format": {
+            "type": "csv",
+            "parse": {
+              "participation_rate_pct": "number",
+              "estimated_fishers": "number",
+              "year": "number",
+              "age_group": "string"
+            }
+          }
+        },
+        "key": "region",
+        "fields": [
+          "participation_rate_pct",
+          "estimated_fishers",
+          "year",
+          "age_group"
+        ]
+      },
+      "default": null
+    },
+    {
+      "calculate": "isValid(datum.participation_rate_pct) ? format(datum.participation_rate_pct, '.2f') + '%' : 'Unavailable'",
+      "as": "participation_label"
+    },
+    {
+      "calculate": "isValid(datum.estimated_fishers) ? format(datum.estimated_fishers, ',.0f') + (datum.survey_region === 'NSW/ACT' ? ' (combined NSW/ACT estimate)' : '') : 'Unavailable'",
+      "as": "fishers_label"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "geoshape",
+        "invalid": null,
+        "stroke": "#ffffff",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "color": {
+          "condition": {
+            "test": "isValid(datum.participation_rate_pct)",
+            "field": "participation_rate_pct",
+            "type": "quantitative",
+            "scale": {
+              "domain": [
+                0,
+                35
+              ],
+              "clamp": true,
+              "range": [
+                "#eff3ff",
+                "#bdd7e7",
+                "#6baed6",
+                "#3182bd",
+                "#08519c"
+              ]
+            },
+            "legend": {
+              "title": "Adult participation (%)",
+              "orient": "bottom",
+              "direction": "horizontal",
+              "gradientLength": 220,
+              "format": ".0f",
+              "values": [
+                0,
+                10,
+                20,
+                30,
+                35
+              ]
+            }
+          },
+          "value": "#b8b8b8"
+        },
+        "tooltip": [
+          {
+            "field": "properties.state_name_2021",
+            "type": "nominal",
+            "title": "State/territory"
+          },
+          {
+            "field": "survey_region_full_name",
+            "type": "nominal",
+            "title": "Survey region"
+          },
+          {
+            "field": "participation_label",
+            "type": "nominal",
+            "title": "Participation rate"
+          },
+          {
+            "field": "fishers_label_full_name",
+            "type": "nominal",
+            "title": "Estimated adult fishers"
+          },
+          {
+            "field": "year",
+            "type": "quantitative",
+            "title": "Participation year",
+            "format": ".0f"
+          },
+          {
+            "field": "age_group",
+            "type": "nominal",
+            "title": "Age group"
+          }
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "replace(datum.survey_region, /NSW\\/ACT/g, \"New South Wales / Australian Capital Territory\")",
+          "as": "survey_region_full_name"
+        },
+        {
+          "calculate": "replace(datum.fishers_label, /NSW\\/ACT/g, \"New South Wales / Australian Capital Territory\")",
+          "as": "fishers_label_full_name"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "system-ui, sans-serif",
+    "legend": {
+      "titleFontSize": 12,
+      "labelFontSize": 11
+    },
+    "title": {
+      "color": "#20343e",
+      "subtitleColor": "#506671"
+    }
+  }
+}

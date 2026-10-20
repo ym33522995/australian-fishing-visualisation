@@ -1,0 +1,186 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Published rounded NSW 2023/24 RFL-household fisher-day shares. Clockwise largest-to-smallest; all four categories remain visible.",
+  "width": "container",
+  "height": 380,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "data": {
+    "url": "data/csv/nsw-effort-by-waterbody.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "effort_share_pct": "number",
+        "category_order": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "window": [
+        {
+          "op": "sum",
+          "field": "effort_share_pct",
+          "as": "cumulative_share"
+        }
+      ],
+      "sort": [
+        {
+          "field": "category_order",
+          "order": "ascending"
+        }
+      ],
+      "frame": [
+        null,
+        0
+      ]
+    },
+    {
+      "calculate": "(datum.cumulative_share - datum.effort_share_pct/2) / 100 * 2 * PI",
+      "as": "mid_angle"
+    },
+    {
+      "calculate": "[datum.waterbody, format(datum.effort_share_pct, '.0f') + '%']",
+      "as": "label"
+    },
+    {
+      "calculate": "replace(datum.survey_population, /NSW/g, \"New South Wales\")",
+      "as": "survey_population_full_name"
+    }
+  ],
+  "encoding": {
+    "tooltip": [
+      {
+        "field": "waterbody",
+        "title": "Waterbody"
+      },
+      {
+        "field": "effort_share_pct",
+        "type": "quantitative",
+        "title": "Share of fishing effort (%)",
+        "format": ".0f"
+      },
+      {
+        "field": "survey_period",
+        "title": "Survey period"
+      },
+      {
+        "field": "survey_population_full_name",
+        "title": "Survey population"
+      },
+      {
+        "field": "source_reference",
+        "title": "Source reference"
+      },
+      {
+        "field": "rounding_note",
+        "title": "Precision"
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "arc",
+        "outerRadius": {
+          "expr": "min(130, max(30, width/2 - 90))"
+        },
+        "stroke": "white",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "theta": {
+          "field": "effort_share_pct",
+          "type": "quantitative",
+          "stack": true
+        },
+        "color": {
+          "field": "waterbody",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Estuaries",
+              "Ocean waters",
+              "Freshwater rivers",
+              "Lakes/dams"
+            ],
+            "range": [
+              "#2b6f8e",
+              "#8375c3",
+              "#6a8f3f",
+              "#804a2e"
+            ]
+          },
+          "legend": null
+        },
+        "order": {
+          "field": "category_order",
+          "type": "quantitative",
+          "sort": "ascending"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "rule",
+        "stroke": "#71858e",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width/2 + sin(datum.mid_angle)*(min(130, max(30, width/2 - 90))+2)"
+          }
+        },
+        "y": {
+          "value": {
+            "expr": "height/2 - cos(datum.mid_angle)*(min(130, max(30, width/2 - 90))+2)"
+          }
+        },
+        "x2": {
+          "value": {
+            "expr": "width/2 + sin(datum.mid_angle)*(min(130, max(30, width/2 - 90))+15)"
+          }
+        },
+        "y2": {
+          "value": {
+            "expr": "height/2 - cos(datum.mid_angle)*(min(130, max(30, width/2 - 90))+15)"
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "lineHeight": 16,
+        "color": "#20343e"
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width/2 + sin(datum.mid_angle)*(min(130, max(30, width/2 - 90))+40)"
+          }
+        },
+        "y": {
+          "value": {
+            "expr": "height/2 - cos(datum.mid_angle)*(min(130, max(30, width/2 - 90))+40)"
+          }
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "system-ui, sans-serif",
+    "view": {
+      "stroke": null
+    }
+  }
+}
