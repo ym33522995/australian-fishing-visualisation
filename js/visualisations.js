@@ -1,7 +1,7 @@
 "use strict";
 
 // Each key is a chart container ID in index.html.
-// Ten working visualisations, with standalone local specifications and data.
+// Thirteen working visualisations, with standalone local specifications and data.
 // URLs resolve relative to index.html (not this JavaScript file), supporting
 // both a local web server and GitHub Pages project URLs.
 const chartSpecifications = {
@@ -16,6 +16,9 @@ const chartSpecifications = {
 
   // Places and Trip Planning: three maps and the NSW effort pie.
   "species-occurrence-map": "specs/species-occurrence-map.json",
+  "bait-use-heatmap": "specs/bait-use-heatmap.json",
+  "responsible-fishing-knowledge": "specs/responsible-fishing-knowledge.json",
+  "seasonal-fishing-waffle": "specs/seasonal-fishing-waffle.json",
   "nsw-effort-by-waterbody": "specs/nsw-effort-by-waterbody.json",
   "fishing-facilities-map": "specs/fishing-facilities-map.json",
   "water-depth-map": "specs/australia-depth-contours.json",
@@ -25,6 +28,8 @@ const chartSpecifications = {
 // Plot dimensions measured in the pre-redesign 1100px content layout (HEAD).
 // Width excludes axes/legends/padding; wellbeing uses its explicit subplot size.
 const originalPlots = {
+  "bait-use-heatmap": [880, 480, 480],
+  "responsible-fishing-knowledge": [880, 430, 430],
   "participation-chart-1": [1040, 325, 240],
   "participation-chart-2": [968, 217, 200],
   "common-species-bar": [929, 260, 260],
@@ -231,6 +236,55 @@ async function embedSpeciesOccurrences() {
 }
 
 embedSpeciesOccurrences();
+
+async function embedBaitUse() {
+  const container = document.getElementById("bait-use-heatmap");
+  try {
+    const { view } = await vegaEmbed("#bait-use-heatmap",
+      chartSpecifications["bait-use-heatmap"], { actions: false, renderer: "svg" });
+    observePlotSize(container, view);
+  } catch (error) {
+    container.textContent = "Bait use could not be loaded. Please reload the page.";
+    console.error("Unable to load bait use heatmap:", error);
+  }
+}
+
+embedBaitUse();
+
+async function embedResponsibleFishingKnowledge() {
+  const container = document.getElementById("responsible-fishing-knowledge");
+  try {
+    const { view } = await vegaEmbed("#responsible-fishing-knowledge",
+      chartSpecifications["responsible-fishing-knowledge"], { actions: false, renderer: "svg" });
+    observePlotSize(container, view);
+  } catch (error) {
+    container.textContent = "Fishing knowledge could not be loaded. Please reload the page.";
+    console.error("Unable to load responsible fishing knowledge:", error);
+  }
+}
+
+embedResponsibleFishingKnowledge();
+
+async function embedSeasonalFishing() {
+  const container = document.getElementById("seasonal-fishing-waffle");
+  try {
+    const { view } = await vegaEmbed("#seasonal-fishing-waffle",
+      chartSpecifications["seasonal-fishing-waffle"], { actions: false, renderer: "svg" });
+    let previousWidth = -1;
+    new ResizeObserver(() => {
+      const width = container.clientWidth;
+      if (width === previousWidth) return;
+      previousWidth = width;
+      // Equal plot dimensions keep the 10 by 10 waffle cells square.
+      view.width(width).height(width).resize().runAsync().catch(console.error);
+    }).observe(container);
+  } catch (error) {
+    container.textContent = "Seasonal fishing activity could not be loaded. Please reload the page.";
+    console.error("Unable to load seasonal fishing waffle:", error);
+  }
+}
+
+embedSeasonalFishing();
 
 async function embedFishingFacilities() {
   const container = document.getElementById("fishing-facilities-map");

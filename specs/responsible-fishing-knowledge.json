@@ -1,0 +1,180 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Learning and teaching activities, weighted Stage 3 2021 Regional Wellbeing Survey results. Moore et al. (2023), Figure 11.3, printed p. 200 (PDF p. 214). Source categories No / Yes, but not in the last year / Yes, within the last year are relabelled for readability. Rounded values retained, including the 100.1% row. Recent training participation (1.1%) is derived from the other two published percentages, not independently labelled in the figure.",
+  "width": "container",
+  "height": 430,
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding",
+    "resize": true
+  },
+  "data": {
+    "url": "data/csv/responsible_fishing_knowledge.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "activity_order": "number",
+        "status_order": "number",
+        "participation_pct": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "calculate": "datum.participation === 'Within the last year' ? datum.participation_pct : 0",
+      "as": "recent_pct"
+    },
+    {
+      "calculate": "format(datum.participation_pct, '.1f') + '%'",
+      "as": "percentage_label"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "participation",
+      "type": "ordinal",
+      "sort": [
+        "Within the last year",
+        "Earlier than the last year",
+        "Never"
+      ],
+      "axis": {
+        "title": null,
+        "orient": "top",
+        "labelAngle": 0,
+        "labelExpr": "datum.label === 'Within the last year' ? ['Within the', 'last year'] : datum.label === 'Earlier than the last year' ? ['Earlier', 'participation'] : ['Never']",
+        "labelLineHeight": 13,
+        "labelLimit": 110,
+        "labelPadding": 10,
+        "ticks": false,
+        "domain": false,
+        "labelFontSize": {
+          "expr": "max(8, min(11, width / 18))"
+        }
+      }
+    },
+    "y": {
+      "field": "activity_order",
+      "type": "ordinal",
+      "sort": {
+        "field": "recent_pct",
+        "op": "max",
+        "order": "descending"
+      },
+      "axis": {
+        "title": null,
+        "labelExpr": "[[\"Teach fishing skills\", \"to family/friends\"], [\"Read/watch guidance\", \"on fish handling\"], [\"Teach responsible fishing\", \"to family/friends\"], [\"Encourage responsible\", \"fishing among other fishers\"], [\"Teach fishing skills\", \"to unfamiliar people\"], [\"Teach responsible fishing\", \"to unfamiliar people\"], [\"Attend fish-handling\", \"training\"]][datum.value]",
+        "labelLimit": 150,
+        "labelLineHeight": 13,
+        "labelPadding": 10,
+        "ticks": false,
+        "domain": false
+      }
+    },
+    "tooltip": [
+      {
+        "field": "activity_full",
+        "type": "nominal",
+        "title": "Learning / teaching activity"
+      },
+      {
+        "field": "participation",
+        "type": "nominal",
+        "title": "Participation"
+      },
+      {
+        "field": "participation_pct",
+        "type": "quantitative",
+        "title": "Fishers (%)",
+        "format": ".1f"
+      },
+      {
+        "field": "source_note",
+        "type": "nominal",
+        "title": "Source note"
+      }
+    ]
+  },
+  "config": {
+    "font": "system-ui, sans-serif",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#20343e",
+      "titleColor": "#20343e",
+      "labelFontSize": 11,
+      "titleFontSize": 12,
+      "grid": false
+    },
+    "legend": {
+      "labelFontSize": 11
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "white",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "color": {
+          "field": "participation_pct",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              100
+            ],
+            "range": [
+              "#f2f7f3",
+              "#b8d9c3",
+              "#66a68a",
+              "#286750",
+              "#123c31"
+            ]
+          },
+          "legend": {
+            "title": [
+              "Fishers reporting",
+              "participation (%)"
+            ],
+            "orient": "bottom",
+            "direction": "horizontal",
+            "gradientLength": 140,
+            "values": [
+              0,
+              25,
+              50,
+              75,
+              100
+            ]
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontWeight": 600,
+        "fontSize": {
+          "expr": "max(9, min(14, width / 13))"
+        }
+      },
+      "encoding": {
+        "text": {
+          "field": "percentage_label",
+          "type": "nominal"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.participation_pct >= 55",
+            "value": "white"
+          },
+          "value": "#173d31"
+        }
+      }
+    }
+  ]
+}

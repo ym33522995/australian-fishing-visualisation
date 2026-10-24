@@ -1,6 +1,6 @@
 # Recreational Fishing in Australia
 
-A single-page dashboard exploring Australian recreational fishing through participation, wellbeing, catches, places, and employment. Built for FIT3179 Data Visualisation 2 using ten Vega-Lite/Vega visualisations.
+A single-page dashboard exploring Australian recreational fishing through participation, wellbeing, catches, places, and employment. Built for FIT3179 Data Visualisation 2 using thirteen Vega-Lite/Vega visualisations.
 
 Author: Miura. Creation date: 15 October 2026.
 
@@ -22,7 +22,7 @@ There is no build step or package installation for the dashboard. Internet acces
 | --- | --- |
 | Participation and Wellbeing | State participation, urban-regional participation, fishing frequency and wellbeing, direct employment |
 | Species and Changes | Queensland retained/released catch ranking and historical catch trends |
-| Places and Trip Planning | Species records, NSW effort by waterbody, Moreton Bay facilities, Australian seabed contours |
+| Places and Trip Planning | Species records, bait-use heatmap, responsible-fishing knowledge, seasonal WA boat fishing, NSW effort by waterbody, Moreton Bay facilities, Australian seabed contours |
 
 Each section ends with an infographic-style summary. Numbered chart labels correspond to source labels in the References section. The footer identifies the author and creation date.
 
@@ -32,7 +32,7 @@ Each section ends with an infographic-style summary. Numbered chart labels corre
 index.html             Page content, chart containers, references, and footer
 css/style.css          Typography, layout, chart cards, and summary styling
 js/visualisations.js   Chart loading, responsive sizing, map controls, and reset
-specs/                 Ten readable Vega-Lite JSON specifications
+specs/                 Thirteen readable Vega-Lite JSON specifications
 data/csv/              Prepared tabular datasets and retained source tables
 data/geojson/          Geographic boundaries, contour lines, labels, and cells
 ```
@@ -50,6 +50,9 @@ The repository contains the prepared data needed to render the dashboard, plus t
 | Queensland catch ranking | [common-species-bar.json](specs/common-species-bar.json) | `queensland_recreational_catch_2019_20.csv` |
 | Queensland catch trends | [queensland-catch-trends.json](specs/queensland-catch-trends.json) | `queensland-catch-trends.csv` |
 | Recorded species locations | [species-occurrence-map.json](specs/species-occurrence-map.json) | `species_occurrence_locations.csv`; state boundaries |
+| Bait use by jurisdiction | [bait-use-heatmap.json](specs/bait-use-heatmap.json) | `bait_use_by_jurisdiction.csv` |
+| Responsible-fishing knowledge | [responsible-fishing-knowledge.json](specs/responsible-fishing-knowledge.json) | `responsible_fishing_knowledge.csv` |
+| Seasonal WA boat fishing | [seasonal-fishing-waffle.json](specs/seasonal-fishing-waffle.json) | `wa_seasonal_fishing.csv` |
 | NSW fishing effort | [nsw-effort-by-waterbody.json](specs/nsw-effort-by-waterbody.json) | `nsw-effort-by-waterbody.csv` |
 | Moreton Bay facilities | [fishing-facilities-map.json](specs/fishing-facilities-map.json) | `facility_grid_counts.csv`; local boundaries and grid cells |
 | Australian seabed contours | [australia-depth-contours.json](specs/australia-depth-contours.json) | Depth overview, detailed contours, label points, annotations, and state boundaries |
@@ -71,7 +74,7 @@ The wellbeing specification is adapted and compiled into Vega by `visualisations
 
 The page's References section provides the source citations and URLs. Principal sources include the national recreational fishing survey, Fisheries Queensland, NSW DPIRD, Atlas of Living Australia, City of Moreton Bay, ABS, and GEBCO.
 
-The dashboard reads nine CSV files and seven GeoJSON files through its specifications. It does not extract reports, generate source datasets, or run Python. All 16 referenced data files are included.
+The dashboard reads twelve CSV files and seven GeoJSON files through its specifications. It does not extract reports, generate source datasets, or run Python. All 19 referenced data files are included.
 
 Three additional files remain as supporting inputs or archived data; the webpage does not load them:
 
@@ -96,4 +99,16 @@ Species records cover four selected species during 2015-2025. Repeated observati
 
 ## GitHub Pages
 
-Publish the repository root through GitHub Pages and retain the relative folder structure. Confirm that the public page, all ten charts, and source links load before submitting the URL. Publishing is separate from running the local dashboard.
+Publish the repository root through GitHub Pages and retain the relative folder structure. Confirm that the public page, all thirteen charts, and source links load before submitting the URL. Publishing is separate from running the local dashboard.
+
+## Bait-use heatmap source
+
+The heatmap transcribes all 16 bait categories for seven jurisdictions from Moore, Keller, Hinten and Schirmer (2023), *National Recreational Fishing Bait and Berley Survey 2019-21*, Table 1, printed page 6 (PDF page 13). [Public report](https://www.frdc.com.au/sites/default/files/products/2018-161-FRDC-report-Bait-and-Berley-FINAL.pdf). Values are weighted percentages, with multiple responses allowed. NSW and ACT are combined. The national column is omitted; its published ordering is retained. The asterisk on the Victorian other-shellfish value (43.3%) is retained in the source note. Data are attributed under CC BY 3.0 Australia.
+
+## Responsible-fishing knowledge source
+
+Labelled heatmap, with activities ordered by recent participation: Moore et al. (2023), *National Social and Economic Survey of Recreational Fishers 2018-2021*, Figure 11.3, printed p. 200 / PDF p. 214. Weighted Stage 3 2021 Regional Wellbeing Survey data. All seven activities and three participation categories are retained (21 rows). Activity labels are shortened on the axis; tooltips retain full descriptions. Published rounded values are retained, including a 100.1% total for teaching unfamiliar people fishing skills. The unlabelled recent-training segment is derived as 100 - 89.3 - 9.6 = 1.1%, disclosed on the page and in its tooltip. Self-reported participation may be overstated. Source: https://www.frdc.com.au/sites/default/files/products/2018-161-NRFS_main%20report_FINAL_19Feb2023.pdf ; research-team mirror: https://www.regionalwellbeing.org.au/wp-content/uploads/2023/02/2018-161-NRFS_main-report_FINAL.pdf .
+
+## Seasonal waffle source
+
+Four published whole-percentage shares (Summer 36%, Autumn 26%, Spring 23%, Winter 15%) are transcribed from Ryan et al. (2025), *Boat-based recreational fishing in Western Australia 2023/24*, Fisheries Research Report No. 352, section 4.1, printed p. 34. https://library.dpird.wa.gov.au/fr_rr/350/ . Survey period: September 2023-August 2024. Vega-Lite expands these four rows into 100 cells; one square represents 1% of estimated boat-days. It does not represent an individual fisher, trip or animal. Legend values are published rounded shares, not national estimates.

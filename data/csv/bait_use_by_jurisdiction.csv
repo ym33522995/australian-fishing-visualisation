@@ -1,0 +1,113 @@
+bait_type,bait_order,jurisdiction,use_pct,source_note
+Prawn/shrimp,1,NSW/ACT,65.5,Table 1; weighted; multiple responses allowed.
+Prawn/shrimp,1,VIC,55.7,Table 1; weighted; multiple responses allowed.
+Prawn/shrimp,1,QLD,74.5,Table 1; weighted; multiple responses allowed.
+Prawn/shrimp,1,SA,45.3,Table 1; weighted; multiple responses allowed.
+Prawn/shrimp,1,WA,63.4,Table 1; weighted; multiple responses allowed.
+Prawn/shrimp,1,TAS,33.1,Table 1; weighted; multiple responses allowed.
+Prawn/shrimp,1,NT,44.7,Table 1; weighted; multiple responses allowed.
+Other saltwater fish,2,NSW/ACT,52.1,Table 1; weighted; multiple responses allowed.
+Other saltwater fish,2,VIC,49.3,Table 1; weighted; multiple responses allowed.
+Other saltwater fish,2,QLD,64.5,Table 1; weighted; multiple responses allowed.
+Other saltwater fish,2,SA,66.2,Table 1; weighted; multiple responses allowed.
+Other saltwater fish,2,WA,58.0,Table 1; weighted; multiple responses allowed.
+Other saltwater fish,2,TAS,37.6,Table 1; weighted; multiple responses allowed.
+Other saltwater fish,2,NT,64.3,Table 1; weighted; multiple responses allowed.
+Octopus/squid/cuttlefish,3,NSW/ACT,40.9,Table 1; weighted; multiple responses allowed.
+Octopus/squid/cuttlefish,3,VIC,46.0,Table 1; weighted; multiple responses allowed.
+Octopus/squid/cuttlefish,3,QLD,52.1,Table 1; weighted; multiple responses allowed.
+Octopus/squid/cuttlefish,3,SA,60.5,Table 1; weighted; multiple responses allowed.
+Octopus/squid/cuttlefish,3,WA,72.4,Table 1; weighted; multiple responses allowed.
+Octopus/squid/cuttlefish,3,TAS,50.9,Table 1; weighted; multiple responses allowed.
+Octopus/squid/cuttlefish,3,NT,68.5,Table 1; weighted; multiple responses allowed.
+Saltwater worms,4,NSW/ACT,38.3,Table 1; weighted; multiple responses allowed.
+Saltwater worms,4,VIC,32.0,Table 1; weighted; multiple responses allowed.
+Saltwater worms,4,QLD,46.3,Table 1; weighted; multiple responses allowed.
+Saltwater worms,4,SA,37.6,Table 1; weighted; multiple responses allowed.
+Saltwater worms,4,WA,21.9,Table 1; weighted; multiple responses allowed.
+Saltwater worms,4,TAS,5.4,Table 1; weighted; multiple responses allowed.
+Saltwater worms,4,NT,7.0,Table 1; weighted; multiple responses allowed.
+Other shellfish,5,NSW/ACT,17.5,Table 1; weighted; multiple responses allowed.
+Other shellfish,5,VIC,43.3,Published as 43.3%* in Table 1.
+Other shellfish,5,QLD,19.8,Table 1; weighted; multiple responses allowed.
+Other shellfish,5,SA,72.3,Table 1; weighted; multiple responses allowed.
+Other shellfish,5,WA,9.6,Table 1; weighted; multiple responses allowed.
+Other shellfish,5,TAS,21.7,Table 1; weighted; multiple responses allowed.
+Other shellfish,5,NT,11.6,Table 1; weighted; multiple responses allowed.
+Berley logs,6,NSW/ACT,12.8,Table 1; weighted; multiple responses allowed.
+Berley logs,6,VIC,22.2,Table 1; weighted; multiple responses allowed.
+Berley logs,6,QLD,8.5,Table 1; weighted; multiple responses allowed.
+Berley logs,6,SA,31.6,Table 1; weighted; multiple responses allowed.
+Berley logs,6,WA,21.6,Table 1; weighted; multiple responses allowed.
+Berley logs,6,TAS,8.3,Table 1; weighted; multiple responses allowed.
+Berley logs,6,NT,4.2,Table 1; weighted; multiple responses allowed.
+Freshwater crayfish,7,NSW/ACT,12.6,Table 1; weighted; multiple responses allowed.
+Freshwater crayfish,7,VIC,21.1,Table 1; weighted; multiple responses allowed.
+Freshwater crayfish,7,QLD,13.0,Table 1; weighted; multiple responses allowed.
+Freshwater crayfish,7,SA,10.2,Table 1; weighted; multiple responses allowed.
+Freshwater crayfish,7,WA,3.8,Table 1; weighted; multiple responses allowed.
+Freshwater crayfish,7,TAS,0.5,Table 1; weighted; multiple responses allowed.
+Freshwater crayfish,7,NT,9.9,Table 1; weighted; multiple responses allowed.
+Other bait/berley,8,NSW/ACT,12.7,Table 1; weighted; multiple responses allowed.
+Other bait/berley,8,VIC,13.7,Table 1; weighted; multiple responses allowed.
+Other bait/berley,8,QLD,10.3,Table 1; weighted; multiple responses allowed.
+Other bait/berley,8,SA,18.4,Table 1; weighted; multiple responses allowed.
+Other bait/berley,8,WA,9.4,Table 1; weighted; multiple responses allowed.
+Other bait/berley,8,TAS,13.0,Table 1; weighted; multiple responses allowed.
+Other bait/berley,8,NT,3.0,Table 1; weighted; multiple responses allowed.
+Crabs,9,NSW/ACT,8.5,Table 1; weighted; multiple responses allowed.
+Crabs,9,VIC,8.7,Table 1; weighted; multiple responses allowed.
+Crabs,9,QLD,6.2,Table 1; weighted; multiple responses allowed.
+Crabs,9,SA,8.5,Table 1; weighted; multiple responses allowed.
+Crabs,9,WA,10.9,Table 1; weighted; multiple responses allowed.
+Crabs,9,TAS,5.6,Table 1; weighted; multiple responses allowed.
+Crabs,9,NT,11.1,Table 1; weighted; multiple responses allowed.
+Carp,10,NSW/ACT,6.8,Table 1; weighted; multiple responses allowed.
+Carp,10,VIC,12.0,Table 1; weighted; multiple responses allowed.
+Carp,10,QLD,3.2,Table 1; weighted; multiple responses allowed.
+Carp,10,SA,20.3,Table 1; weighted; multiple responses allowed.
+Carp,10,WA,4.4,Table 1; weighted; multiple responses allowed.
+Carp,10,TAS,2.0,Table 1; weighted; multiple responses allowed.
+Carp,10,NT,4.2,Table 1; weighted; multiple responses allowed.
+Other freshwater fish,11,NSW/ACT,4.9,Table 1; weighted; multiple responses allowed.
+Other freshwater fish,11,VIC,6.6,Table 1; weighted; multiple responses allowed.
+Other freshwater fish,11,QLD,5.3,Table 1; weighted; multiple responses allowed.
+Other freshwater fish,11,SA,3.2,Table 1; weighted; multiple responses allowed.
+Other freshwater fish,11,WA,6.4,Table 1; weighted; multiple responses allowed.
+Other freshwater fish,11,TAS,2.2,Table 1; weighted; multiple responses allowed.
+Other freshwater fish,11,NT,6.9,Table 1; weighted; multiple responses allowed.
+Trout/salmon,12,NSW/ACT,3.6,Table 1; weighted; multiple responses allowed.
+Trout/salmon,12,VIC,8.5,Table 1; weighted; multiple responses allowed.
+Trout/salmon,12,QLD,2.5,Table 1; weighted; multiple responses allowed.
+Trout/salmon,12,SA,9.8,Table 1; weighted; multiple responses allowed.
+Trout/salmon,12,WA,2.5,Table 1; weighted; multiple responses allowed.
+Trout/salmon,12,TAS,3.7,Table 1; weighted; multiple responses allowed.
+Trout/salmon,12,NT,6.1,Table 1; weighted; multiple responses allowed.
+Saltwater lobster/crayfish,13,NSW/ACT,3.4,Table 1; weighted; multiple responses allowed.
+Saltwater lobster/crayfish,13,VIC,7.1,Table 1; weighted; multiple responses allowed.
+Saltwater lobster/crayfish,13,QLD,4.0,Table 1; weighted; multiple responses allowed.
+Saltwater lobster/crayfish,13,SA,3.6,Table 1; weighted; multiple responses allowed.
+Saltwater lobster/crayfish,13,WA,3.7,Table 1; weighted; multiple responses allowed.
+Saltwater lobster/crayfish,13,TAS,2.0,Table 1; weighted; multiple responses allowed.
+Saltwater lobster/crayfish,13,NT,4.7,Table 1; weighted; multiple responses allowed.
+Barramundi,14,NSW/ACT,4.0,Table 1; weighted; multiple responses allowed.
+Barramundi,14,VIC,8.1,Table 1; weighted; multiple responses allowed.
+Barramundi,14,QLD,3.5,Table 1; weighted; multiple responses allowed.
+Barramundi,14,SA,1.0,Table 1; weighted; multiple responses allowed.
+Barramundi,14,WA,1.9,Table 1; weighted; multiple responses allowed.
+Barramundi,14,TAS,0.4,Table 1; weighted; multiple responses allowed.
+Barramundi,14,NT,13.0,Table 1; weighted; multiple responses allowed.
+Sharks/stingray,15,NSW/ACT,4.3,Table 1; weighted; multiple responses allowed.
+Sharks/stingray,15,VIC,5.6,Table 1; weighted; multiple responses allowed.
+Sharks/stingray,15,QLD,1.8,Table 1; weighted; multiple responses allowed.
+Sharks/stingray,15,SA,3.9,Table 1; weighted; multiple responses allowed.
+Sharks/stingray,15,WA,2.9,Table 1; weighted; multiple responses allowed.
+Sharks/stingray,15,TAS,1.5,Table 1; weighted; multiple responses allowed.
+Sharks/stingray,15,NT,4.5,Table 1; weighted; multiple responses allowed.
+Abalone,16,NSW/ACT,2.7,Table 1; weighted; multiple responses allowed.
+Abalone,16,VIC,7.6,Table 1; weighted; multiple responses allowed.
+Abalone,16,QLD,2.9,Table 1; weighted; multiple responses allowed.
+Abalone,16,SA,2.6,Table 1; weighted; multiple responses allowed.
+Abalone,16,WA,1.1,Table 1; weighted; multiple responses allowed.
+Abalone,16,TAS,2.1,Table 1; weighted; multiple responses allowed.
+Abalone,16,NT,4.6,Table 1; weighted; multiple responses allowed.

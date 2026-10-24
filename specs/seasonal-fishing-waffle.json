@@ -1,0 +1,131 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "WA boat-based recreational fishing effort by season, September 2023 to August 2024. Published whole percentages from Ryan, Lai, Smallwood and Tate (2025), Fisheries Research Report No. 352, section 4.1, printed p. 34. Each of 100 squares represents one percentage point of estimated boat-days, not an individual boat, person or catch. Cells generated from the four reported percentages.",
+  "width": "container",
+  "height": 400,
+  "padding": 0,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "data": {
+    "url": "data/csv/wa_seasonal_fishing.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "share_pct": "number",
+        "season_order": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "window": [
+        {
+          "op": "sum",
+          "field": "share_pct",
+          "as": "end_cell"
+        }
+      ],
+      "sort": [
+        {
+          "field": "season_order",
+          "order": "ascending"
+        }
+      ],
+      "frame": [
+        null,
+        0
+      ]
+    },
+    {
+      "calculate": "datum.end_cell - datum.share_pct",
+      "as": "start_cell"
+    },
+    {
+      "calculate": "sequence(datum.start_cell, datum.end_cell)",
+      "as": "cells"
+    },
+    {
+      "flatten": [
+        "cells"
+      ],
+      "as": [
+        "cell"
+      ]
+    },
+    {
+      "calculate": "datum.cell % 10",
+      "as": "column"
+    },
+    {
+      "calculate": "floor(datum.cell / 10)",
+      "as": "row"
+    }
+  ],
+  "mark": {
+    "type": "rect",
+    "cornerRadius": 2
+  },
+  "encoding": {
+    "x": {
+      "field": "column",
+      "type": "ordinal",
+      "sort": "ascending",
+      "axis": null,
+      "scale": {
+        "paddingInner": 0.12,
+        "paddingOuter": 0
+      }
+    },
+    "y": {
+      "field": "row",
+      "type": "ordinal",
+      "sort": "ascending",
+      "axis": null,
+      "scale": {
+        "paddingInner": 0.12,
+        "paddingOuter": 0
+      }
+    },
+    "color": {
+      "field": "season",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Summer",
+          "Autumn",
+          "Spring",
+          "Winter"
+        ],
+        "range": [
+          "#c15b16",
+          "#885197",
+          "#258575",
+          "#386caa"
+        ]
+      },
+      "legend": null
+    },
+    "tooltip": [
+      {
+        "field": "season",
+        "type": "nominal",
+        "title": "Season"
+      },
+      {
+        "field": "share_pct",
+        "type": "quantitative",
+        "title": "Share of boat-fishing activity (%)",
+        "format": ".0f"
+      }
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "system-ui, sans-serif"
+  }
+}

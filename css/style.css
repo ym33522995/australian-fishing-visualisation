@@ -151,6 +151,9 @@ section {
 }
 
 .participation-map,
+.bait-heatmap,
+.knowledge-chart,
+.seasonal-waffle,
 .participation-comparison,
 .occurrence-map,
 .facilities-map,
@@ -168,6 +171,9 @@ section {
 }
 
 .participation-map.vega-embed,
+.bait-heatmap.vega-embed,
+.knowledge-chart.vega-embed,
+.seasonal-waffle.vega-embed,
 .participation-comparison.vega-embed,
 .occurrence-map.vega-embed,
 .facilities-map.vega-embed,
@@ -357,3 +363,16 @@ button:disabled { cursor: default; }
   .summary-flow, .summary-flow:has(> :nth-child(4)) { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
   .summary-insight:not(:last-child)::after { content: none; }
 }
+
+/* Keep waffle cells square and its four labelled categories easy to scan. */
+.seasonal-waffle { max-width: 420px; margin-inline: auto; }
+.seasonal-waffle.vega-embed { display: block; }
+.seasonal-waffle svg { display: block; }
+.seasonal-legend { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.65rem 1.5rem; max-width: 420px; margin: 1rem auto; padding: 0; list-style: none; font-size: 0.9rem; }
+.seasonal-legend li { display: flex; align-items: center; gap: 0.5rem; }
+.seasonal-legend strong { margin-left: auto; }
+.seasonal-swatch { width: 0.85rem; height: 0.85rem; border-radius: 2px; flex-shrink: 0; }
+.seasonal-summer { background: #c15b16; }
+.seasonal-autumn { background: #885197; }
+.seasonal-spring { background: #258575; }
+.seasonal-winter { background: #386caa; }

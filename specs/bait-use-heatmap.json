@@ -1,0 +1,169 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Weighted bait-use percentages transcribed from Moore et al. (2023), National Recreational Fishing Bait and Berley Survey 2019-21, Table 1, printed p. 6 (PDF p. 13). NSW and ACT are combined. Multiple responses allowed; percentages are not parts of a whole. VIC other shellfish is printed as 43.3% with an asterisk, retained in the tooltip source note.",
+  "width": "container",
+  "height": 480,
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding",
+    "resize": true
+  },
+  "data": {
+    "url": "data/csv/bait_use_by_jurisdiction.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "use_pct": "number",
+        "bait_order": "number"
+      }
+    }
+  },
+  "encoding": {
+    "x": {
+      "field": "jurisdiction",
+      "type": "nominal",
+      "sort": [
+        "NSW/ACT",
+        "VIC",
+        "QLD",
+        "SA",
+        "WA",
+        "TAS",
+        "NT"
+      ],
+      "axis": {
+        "title": null,
+        "orient": "top",
+        "labelAngle": -45,
+        "labelFontSize": 11,
+        "labelLimit": 70
+      }
+    },
+    "y": {
+      "field": "bait_type",
+      "type": "nominal",
+      "sort": {
+        "field": "bait_order",
+        "order": "ascending"
+      },
+      "axis": {
+        "title": null,
+        "labelLimit": 145,
+        "labelFontSize": 11,
+        "labelPadding": 8,
+        "ticks": false
+      }
+    },
+    "tooltip": [
+      {
+        "field": "jurisdiction_full_name",
+        "type": "nominal",
+        "title": "State/territory"
+      },
+      {
+        "field": "bait_type",
+        "type": "nominal",
+        "title": "Bait / berley"
+      },
+      {
+        "field": "use_pct",
+        "type": "quantitative",
+        "title": "Reported use (%)",
+        "format": ".1f"
+      },
+      {
+        "field": "source_note",
+        "type": "nominal",
+        "title": "Source note"
+      }
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "system-ui, sans-serif",
+    "axis": {
+      "domain": false,
+      "grid": false,
+      "labelColor": "#20343e"
+    },
+    "legend": {
+      "titleFontSize": 12,
+      "labelFontSize": 11
+    }
+  },
+  "transform": [
+    {
+      "calculate": "datum.jurisdiction === 'NSW/ACT' ? 'New South Wales / Australian Capital Territory' : datum.jurisdiction === 'VIC' ? 'Victoria' : datum.jurisdiction === 'QLD' ? 'Queensland' : datum.jurisdiction === 'SA' ? 'South Australia' : datum.jurisdiction === 'WA' ? 'Western Australia' : datum.jurisdiction === 'TAS' ? 'Tasmania' : datum.jurisdiction === 'NT' ? 'Northern Territory' : datum.jurisdiction",
+      "as": "jurisdiction_full_name"
+    },
+    {
+      "calculate": "format(datum.use_pct, '.1f') + '%'",
+      "as": "use_label"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "white",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "color": {
+          "field": "use_pct",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              100
+            ],
+            "range": [
+              "#fff7ec",
+              "#fdd49e",
+              "#fc8d59",
+              "#d7301f",
+              "#7f0000"
+            ]
+          },
+          "legend": {
+            "title": "Fishers reporting use (%)",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "gradientLength": 140,
+            "values": [
+              0,
+              25,
+              50,
+              75,
+              100
+            ]
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": {
+          "expr": "max(6, min(12, width / 40))"
+        },
+        "fontWeight": 600
+      },
+      "encoding": {
+        "text": {
+          "field": "use_label",
+          "type": "nominal"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.use_pct >= 55",
+            "value": "#ffffff"
+          },
+          "value": "#3b2118"
+        }
+      }
+    }
+  ]
+}
